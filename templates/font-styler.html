@@ -2,5 +2,144 @@
 {% set active_page = "font-styler" %}
 
 {% block main %}
-    <p>{{ active_page }}</p>
+        <!-- Adds -->
+        <div class="ads"></div>
+
+        <!-- Title -->
+        <header class="tools-header">
+            <h1 class="tools-header__title">Font styler generator</h1>
+        </header>
+
+        <!-- Result -->
+        <section id="{{ active_page }}-results-container" class="tools-result">
+            <!-- Reset button -->
+            <button class="tools-result__reset reset">Reset view</button>
+            <span class="tools-result__badge">View</span>
+            <div id="{{ active_page }}-results" class="tools-result__view" style="font-size: 78px; font-weight: bold;">Sample text</div>
+        </section>
+
+        <section class="tools-container">
+            <!-- Options -->
+            <section class="tools-options">
+                <!-- Settings -->
+                <div class="tools-options__settings tools-options__settings--{{ active_page }}">
+                    <!-- Edit text -->
+                    <input type="text" aria-label="text-edit" aria-describedby="text-edit-description" min="-10" max="10" placeholder="Write something...">
+                    <!-- font-size -->
+                    <div>
+                        <input type="number" aria-label="font-size" aria-describedby="font-size-description" min="0" max="100" placeholder="Font size">
+                        <input type="range" class="custom-range w-100" id="font-size" min="0" max="100" value="16">
+                    </div>
+                    <!-- line-height -->
+                    <div>
+                        <input type="number" aria-label="line-height" aria-describedby="line-height-description" min="0.7" max="2" step="0.1" placeholder="Line height">
+                        <input type="range" class="custom-range w-100" id="line-height" min="0.7" max="2" step="0.1" value="1">
+                    </div>
+                    <!-- font-family -->
+                    <select id="font-family">
+                        <option selected>Font family</option>
+                        <optgroup label="Sans serif">
+                            <option value="1">Arial</option>
+                            <option value="2">Verdana</option>
+                            <option value="3">Helvetica</option>
+                            <option value="4">Tahoma</option>
+                            <option value="5">Trebuchet MS</option>
+                        </optgroup>
+                        <optgroup label="Serif">
+                            <option value="6">Times New Roman</option>
+                            <option value="7">Georgia</option>
+                            <option value="8">Garamond</option>
+                        </optgroup>
+                        <optgroup label="Monospace">
+                            <option value="9">Courier New</option>
+                        </optgroup>
+                        <optgroup label="Cursive">
+                            <option value="10">Brush Script MT</option>
+                        </optgroup>
+                    </select>
+                    <!-- font-weight -->
+                    <select id="font-weight">
+                        <option selected>Font weight</option>
+                        <option value="1">Normal</option>
+                        <option value="2">Bold</option>
+                    </select>
+                    <!-- font-style -->
+                    <select id="font-style">
+                        <option selected>Font style</option>
+                        <option value="1">Normal</option>
+                        <option value="2">Italic</option>
+                    </select>
+                    <!-- font-variant -->
+                    <select id="font-variant">
+                        <option selected>Font variant</option>
+                        <option value="1">Normal</option>
+                        <option value="2">small-caps</option>
+                    </select>
+                    <!-- text-align -->
+                    <select id="text-align">
+                        <option selected>Text align</option>
+                        <option value="1">Center</option>
+                        <option value="2">Left</option>
+                        <option value="1">Right</option>
+                        <option value="2">Justify</option>
+                    </select>
+                    <!-- text-transform -->
+                    <select id="text-transform">
+                        <option selected>Text transform</option>
+                        <option value="1">Capitalize</option>
+                        <option value="3">Uppercase</option>
+                        <option value="4">Lowercase</option>
+                    </select>
+                    <!-- text-decoration -->
+                    <select id="text-decoration">
+                        <option selected>Text decoration</option>
+                            <optgroup label="Underline">
+                                <option value="1">Solid</option>
+                                <option value="3">Dashed</option>
+                                <option value="4">Dotted</option>
+                                <option value="5">Double</option>
+                                <option value="5">Wavy</option>
+                            </optgroup>
+                            <optgroup label="Overline">
+                                <option value="1">Solid</option>
+                                <option value="3">Dashed</option>
+                                <option value="4">Dotted</option>
+                                <option value="5">Double</option>
+                                <option value="5">Wavy</option>
+                            </optgroup>
+                            <optgroup label="Line-through">
+                                <option value="1">Solid</option>
+                                <option value="3">Dashed</option>
+                                <option value="4">Dotted</option>
+                                <option value="5">Double</option>
+                                <option value="5">Wavy</option>
+                            </optgroup>
+                            <optgroup label="Overline underline">
+                                <option value="1">Solid</option>
+                                <option value="3">Dashed</option>
+                                <option value="4">Dotted</option>
+                                <option value="5">Double</option>
+                                <option value="5">Wavy</option>
+                        </optgroup>
+                    </select>
+                    <!-- text-decoration-color -->
+                    <input type="color" id="text-decoration-color" aria-label="background-color" aria-describedby="text-decoration-color-description">
+                    <!-- text-color -->
+                    <input type="color" id="text-color" aria-label="background-color" aria-describedby="text-color-description">
+                </div>
+        
+                <!-- Code result -->
+                <div id="code-result-container" class="tools-options__code"></div>
+    
+                <!-- Description -->
+                <article class="box">
+                    <h2 class="box__title">Font Styler</h2>
+                    <p class="box__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.</p>
+                </article>
+            </section>
+
+            <!-- Ads -->
+            <section class="ads"></section>
+        </section>
+    </div>
 {% endblock %}

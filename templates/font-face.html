@@ -2,5 +2,39 @@
 {% set active_page = "font-face" %}
 
 {% block main %}
-    <p>{{ active_page }}</p>
+        <!-- Adds -->
+        <div class="ads"></div>
+
+        <!-- Title -->
+        <header class="tools-header">
+            <h1 class="tools-header__title">Font face generator</h1>
+        </header>
+
+        <section class="tools-container">
+            <!-- Options -->
+            <section class="tools-options">
+                <!-- Settings -->
+                <div class="tools-options__settings tools-options__settings--{{ active_page }}">
+                    <!-- font-name -->
+                    <input type="text" aria-label="font-name" aria-describedby="font-name" placeholder="Font name">
+                    <!-- font-file -->
+                    <input type="text" aria-label="font-file" aria-describedby="font-file" placeholder="Font file name">
+                    <!-- font-path -->
+                    <input type="text" aria-label="font-path" aria-describedby="font-path" placeholder="Folder path">
+                </div>
+        
+                <!-- Code result -->
+                <div id="code-result-container" class="tools-options__code"></div>
+    
+                <!-- Description -->
+                <article class="box">
+                    <h2 class="box__title">Font face</h2>
+                    <p class="box__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.</p>
+                </article>
+            </section>
+
+            <!-- Ads -->
+            <section class="ads"></section>
+        </section>
+    </div>
 {% endblock %}

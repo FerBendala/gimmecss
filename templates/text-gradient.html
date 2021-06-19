@@ -2,5 +2,71 @@
 {% set active_page = "text-gradient" %}
 
 {% block main %}
-    <p>{{ active_page }}</p>
+        <!-- Adds -->
+        <div class="ads"></div>
+
+        <!-- Title -->
+        <header class="tools-header">
+            <h1 class="tools-header__title">Text gradient generator</h1>
+        </header>
+
+        <!-- Result -->
+        <section id="{{ active_page }}-results-container" class="tools-result">
+            <!-- Reset button -->
+            <button class="tools-result__reset reset">Reset view</button>
+            <span class="tools-result__badge">View</span>
+            <div id="{{ active_page }}-results" class="tools-result__view" style="font-size: 78px; font-weight: bold;">Sample text</div>
+        </section>
+
+        <section class="tools-container">
+            <!-- Options -->
+            <section class="tools-options">
+                <!-- Settings -->
+                <div class="tools-options__settings tools-options__settings--{{ active_page }}">
+                    <!-- Edit text -->
+                    <input type="text" aria-label="text-edit" aria-describedby="text-edit-description" min="-10" max="10" placeholder="Write something...">
+                    <!-- text-size -->
+                    <div>
+                        <input type="number" aria-label="text-size" aria-describedby="text-size-description" min="0" max="100" placeholder="Font size">
+                        <input type="range" class="custom-range w-100" id="text-size" min="0" max="100" value="78">
+                    </div>
+                    <!-- gradient-type -->
+                    <select id="switch-type">
+                        <option value="">Type</option>
+                        <option value="radial">Radial</option>
+                        <option value="linear">Linear</option>
+                        <option value="repeating-radial">Repeating Radial</option>
+                        <option value="repeating-linear">Repeating Linear</option>
+                    </select>
+                    <!-- gradient-direction -->
+                    <select id="switch-angle">
+                        <option value="">Direction</option>
+                        <option value="top">Top</option>
+                        <option value="bottom">Bottom</option>
+                        <option value="center">Center</option>
+                        <option value="right">Right</option>
+                        <option value="left">Left</option>
+                        <option value="45deg">⬋ Southwest</option>
+                        <option value="-135deg">⬈ Northeast</option>
+                        <option value="-45deg">⬉ Northwest</option>
+                        <option value="135deg">⬊ Southeast</option>
+                    </select>
+                    <!-- gradient-picker -->
+                    <div id="grapick"></div>
+                </div>
+        
+                <!-- Code result -->
+                <div id="code-result-container" class="tools-options__code"></div>
+    
+                <!-- Description -->
+                <article class="box">
+                    <h2 class="box__title">Text gradient</h2>
+                    <p class="box__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.</p>
+                </article>
+            </section>
+
+            <!-- Ads -->
+            <section class="ads"></section>
+        </section>
+    </div>
 {% endblock %}

@@ -21,8 +21,8 @@ $(function () {
     // Text edit
     $('input[aria-label="text-edit"]').on('input', function () {
         tEdit = $(this).val();
-        $("#font-family-results").html('');
-        $('#font-family-results').append(tEdit);
+        $("#font-styler-results").html('');
+        $('#font-styler-results').append(tEdit);
     });
 
 
@@ -30,7 +30,7 @@ $(function () {
     // Font size
     $('#font-size').on('input', function () {
         fSize = $(this).val();
-        $('#font-family-results').css('fontSize', `${fSize}px`);
+        $('#font-styler-results').css('fontSize', `${fSize}px`);
         $('input[aria-label="font-size"]').val($(this).val());
     });
 
@@ -49,7 +49,7 @@ $(function () {
             fSize = min;
         }
 
-        $('#font-family-results').css('fontSize', `${fSize}px`);
+        $('#font-styler-results').css('fontSize', `${fSize}px`);
         $('#font-size').val($(this).val());
     });
 
@@ -58,7 +58,7 @@ $(function () {
     // Line height
     $('#line-height').on('input', function () {
         lHeight = $(this).val();
-        $('#font-family-results').css('lineHeight', `${lHeight}`);
+        $('#font-styler-results').css('lineHeight', `${lHeight}`);
         $('input[aria-label="line-height"]').val($(this).val());
     });
 
@@ -77,7 +77,7 @@ $(function () {
             fSize = min;
         }
 
-        $('#font-family-results').css('lineHeight', `${lHeight}`);
+        $('#font-styler-results').css('lineHeight', `${lHeight}`);
         $('#line-height').val($(this).val());
     });
 
@@ -86,7 +86,7 @@ $(function () {
     // Font family
     $('#font-family').on('input', function () {
         fFamily = $("#font-family option:selected").text();
-        $('#font-family-results').css('fontFamily', fFamily);
+        $('#font-styler-results').css('fontFamily', fFamily);
     });
     
     
@@ -94,7 +94,7 @@ $(function () {
     // Font weight
     $('#font-weight').on('input', function () {
         fWeight = $("#font-weight option:selected").text();
-        $('#font-family-results').css('fontWeight', fWeight);
+        $('#font-styler-results').css('fontWeight', fWeight);
     });
     
     
@@ -102,7 +102,7 @@ $(function () {
     // Font style
     $('#font-style').on('input', function () {
         fStyle = $("#font-style option:selected").text();
-        $('#font-family-results').css('fontStyle', fStyle);
+        $('#font-styler-results').css('fontStyle', fStyle);
     });
     
     
@@ -110,7 +110,7 @@ $(function () {
     // Font variant
     $('#font-variant').on('input', function () {
         fVariant = $("#font-variant option:selected").text();
-        $('#font-family-results').css('fontVariant', fVariant);
+        $('#font-styler-results').css('fontVariant', fVariant);
     });
     
     
@@ -118,7 +118,7 @@ $(function () {
     // Text align
     $('#text-align').on('input', function () {
         tAlign = $("#text-align option:selected").text();
-        $('#font-family-results').css('textAlign', tAlign);
+        $('#font-styler-results').css('textAlign', tAlign);
     });
     
     
@@ -128,8 +128,8 @@ $(function () {
         tDecorationLine = $("#text-decoration :selected").closest('optgroup').prop('label')
         tDecorationStyle = $("#text-decoration option:selected").text()
 
-        $('#font-family-results').css('textDecorationLine', tDecorationLine);
-        $('#font-family-results').css('textDecorationStyle', tDecorationStyle);
+        $('#font-styler-results').css('textDecorationLine', tDecorationLine);
+        $('#font-styler-results').css('textDecorationStyle', tDecorationStyle);
     });
 
 
@@ -137,7 +137,7 @@ $(function () {
     // Text decoration color
     $('#text-decoration-color').on('input', function () {
         tdColor = $(this).val();
-        $('#font-family-results').css('textDecorationColor', tdColor);
+        $('#font-styler-results').css('textDecorationColor', tdColor);
     });
     
     
@@ -145,14 +145,14 @@ $(function () {
     // Text transform
     $('#text-transform').on('input', function () {
         tAlign = $("#text-transform option:selected").text();
-        $('#font-family-results').css('textTransform', tAlign);
+        $('#font-styler-results').css('textTransform', tAlign);
     });
 
     /////////////////////////
     // Text color
     $('#text-color').on('input', function () {
         fColor = $(this).val();
-        $('#font-family-results').css('color', fColor);
+        $('#font-styler-results').css('color', fColor);
     });
 
 
@@ -161,18 +161,18 @@ $(function () {
     // watch changes to add font-family values
     $('input, select').on('input change', function () {
         $('#code-result-container').html(`
-            <pre><code class="css">font-family: ${$('#font-family-results').css("fontFamily")};
-font-weight: ${$('#font-family-results').css("fontWeight")};
-font-style: ${$('#font-family-results').css("fontStyle")};
-font-size: ${$('#font-family-results').css("fontSize")};
+            <pre><code class="css">font-family: ${$('#font-styler-results').css("fontFamily")};
+font-weight: ${$('#font-styler-results').css("fontWeight")};
+font-style: ${$('#font-styler-results').css("fontStyle")};
+font-size: ${$('#font-styler-results').css("fontSize")};
 
-line-height: ${$('#font-family-results').css("lineHeight")};
+line-height: ${$('#font-styler-results').css("lineHeight")};
 
-text-align: ${$('#font-family-results').css("textAlign")};
-text-decoration: ${$('#font-family-results').css("textDecoration")};
-text-transform: ${$('#font-family-results').css("textTransform")};
+text-align: ${$('#font-styler-results').css("textAlign")};
+text-decoration: ${$('#font-styler-results').css("textDecoration")};
+text-transform: ${$('#font-styler-results').css("textTransform")};
 
-color: ${$('#font-family-results').css("color")};</code></pre>
+color: ${$('#font-styler-results').css("color")};</code></pre>
 <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
         );
         $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
@@ -196,7 +196,7 @@ color: ${$('#font-family-results').css("color")};</code></pre>
         $('input[type="range"]').val(0);
 
         // Remove Visual borders to results rectangle 
-        $('#font-family-results').css('font-family', 'none')
+        $('#font-styler-results').css('font-family', 'none')
 
         // Remove code
         $('#code-result-container').html('')

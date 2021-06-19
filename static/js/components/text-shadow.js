@@ -18,8 +18,8 @@ $(function () {
     // Text edit
     $('input[aria-label="text-edit"]').on('input', function () {
         tEdit = $(this).val();
-        $("#text-shadow-results-text").html('');
-        $('#text-shadow-results-text').append(tEdit);
+        $("#text-shadow-results").html('');
+        $('#text-shadow-results').append(tEdit);
     });
 
 
@@ -27,7 +27,7 @@ $(function () {
     // Text shadow horizontal
     $('#text-shadow-horizontal').on('input', function () {
         tsHorizontal = $(this).val();
-        $('#text-shadow-results-text').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
+        $('#text-shadow-results').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
         $('input[aria-label="text-shadow-horizontal"]').val($(this).val());
     });
 
@@ -44,7 +44,7 @@ $(function () {
             tsHorizontal = min;
         }
 
-        $('#text-shadow-results-text').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
+        $('#text-shadow-results').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
         $('#text-shadow-horizontal').val($(this).val());
     });
 
@@ -53,7 +53,7 @@ $(function () {
     // Text shadow vertical
     $('#text-shadow-vertical').on('input', function () {
         tsVertical = $(this).val();
-        $('#text-shadow-results-text').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
+        $('#text-shadow-results').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
         $('input[aria-label="text-shadow-vertical"]').val($(this).val());
     });
 
@@ -70,7 +70,7 @@ $(function () {
             tsVertical = min;
         }
 
-        $('#text-shadow-results-text').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
+        $('#text-shadow-results').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
         $('#text-shadow-vertical').val($(this).val());
     });
 
@@ -79,7 +79,7 @@ $(function () {
     // Text shadow blur
     $('#text-shadow-blur').on('input', function () {
         tsBlur = $(this).val();
-        $('#text-shadow-results-text').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
+        $('#text-shadow-results').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
 
         $('input[aria-label="text-shadow-blur"]').val($(this).val());
     });
@@ -98,7 +98,7 @@ $(function () {
             tsBlur = min;
         }
 
-        $('#text-shadow-results-text').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
+        $('#text-shadow-results').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
         $('#text-shadow-blur').val($(this).val());
     });
 
@@ -107,7 +107,7 @@ $(function () {
     // Container text-shadow Text color
     $('#text-shadow-color').on('input propertychange', function () {
         tsColor = hexToRgbA($(this).val())
-        $('#text-shadow-results-text').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
+        $('#text-shadow-results').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
     });
 
 
@@ -115,7 +115,7 @@ $(function () {
     // Text shadow opacity
     $('#text-shadow-opacity').on('input', function () {
         tsOpacity = $(this).val();
-        $('#text-shadow-results-text').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
+        $('#text-shadow-results').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
 
         $('input[aria-label="text-shadow-opacity"]').val($(this).val());
     });
@@ -135,7 +135,7 @@ $(function () {
             tsOpacity = min;
         }
 
-        $('#text-shadow-results-text').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
+        $('#text-shadow-results').css('text-shadow', `${tsHorizontal}px ${tsVertical}px ${tsBlur}px rgba(${tsColor}, ${tsOpacity})`);
         $('#text-shadow-opacity').val($(this).val());
     });
 
@@ -144,7 +144,7 @@ $(function () {
     // Font size
     $('#text-size').on('input', function () {
         tfSize = $(this).val();
-        $('#text-shadow-results-text').css('fontSize', `${tfSize}px`);
+        $('#text-shadow-results').css('fontSize', `${tfSize}px`);
         $('input[aria-label="text-size"]').val($(this).val());
     });
 
@@ -163,7 +163,7 @@ $(function () {
             fSize = min;
         }
 
-        $('#text-shadow-results-text').css('fontSize', `${tfSize}px`);
+        $('#text-shadow-results').css('fontSize', `${tfSize}px`);
         $('#text-size').val($(this).val());
     });
 
@@ -172,7 +172,7 @@ $(function () {
     // Line height
     $('#text-line-height').on('input', function () {
         tlHeight = $(this).val();
-        $('#text-shadow-results-text').css('lineHeight', `${tlHeight}`);
+        $('#text-shadow-results').css('lineHeight', `${tlHeight}`);
         $('input[aria-label="text-line-height"]').val($(this).val());
     });
 
@@ -191,7 +191,7 @@ $(function () {
             fSize = min;
         }
 
-        $('#text-shadow-results-text').css('lineHeight', `${tlHeight}`);
+        $('#text-shadow-results').css('lineHeight', `${tlHeight}`);
         $('#text-line-height').val($(this).val());
     });
 
@@ -200,7 +200,7 @@ $(function () {
     // Text color
     $('#text-color').on('input', function () {
         tColor = $(this).val();
-        $('#text-shadow-results-text').css('color', tColor);
+        $('#text-shadow-results').css('color', tColor);
     });
 
 
@@ -211,10 +211,10 @@ $(function () {
         $('#code-result-container').html(`
             
             <ol id="code-result" class="text-monospace">
-                <pre><code class="css">text-shadow: ${$('#text-shadow-results-text').css("textShadow")};
-font-size: ${$('#text-shadow-results-text').css("fontSize")};
-line-height: ${$('#text-shadow-results-text').css("lineHeight")};
-color: ${$('#text-shadow-results-text').css("color")};</code></pre>
+                <pre><code class="css">text-shadow: ${$('#text-shadow-results').css("textShadow")};
+font-size: ${$('#text-shadow-results').css("fontSize")};
+line-height: ${$('#text-shadow-results').css("lineHeight")};
+color: ${$('#text-shadow-results').css("color")};</code></pre>
                 <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
         );
         $('pre code').each(function (i, e) { hljs.highlightBlock(e) });

@@ -54,38 +54,12 @@ body {
         }
     }
 
-    // Titles
-    h {
-        &1 {
-            font: $font-title--h1;
-            letter-spacing: rem(-1);
-        }
-        &2 {
-            font: $font-title--h2;
-            letter-spacing: rem(-1);
-        }
-        &3 {
-            font: $font-title--h3;
-        }
+    // Input text
+    input[type='text'],
+    input[type='number'] {
+        @include placeholder($c: $color-black, $o: 1, $ff: $font-family);
 
-        // responsive
-        @include media(phone) {
-            &1 {
-                font-size: em(40);
-            }
-            &2 {
-                font-size: em(38);
-            }
-            &3 {
-                font-size: em(22);
-            }
-        }
-    }
-
-    // Inputs
-    input[type='text'] {
-        @include placeholder($c: $color-black, $o: 0.48, $ff: $font-family);
-
+        width: 100%;
         height: em(40);
         padding: em(16) em(24);
         border: none;
@@ -98,9 +72,241 @@ body {
         transition: box-shadow $transition;
 
         // Hover & focus
-        &:hover,
-        &:focus {
+        &:hover:not(:disabled),
+        &:focus:not(:disabled) {
             box-shadow: $box-shadow, $box-shadow, $box-shadow;
+        }
+    }
+
+    // Input type color
+    input[type='color'] {
+        width: 100%;
+        height: em(56);
+        padding: 0;
+        border: em(6) solid $color-white;
+        border-radius: $border-radius * 2;
+        box-shadow: $box-shadow;
+        overflow: hidden;
+
+        font-size: em(16);
+
+        appearance: none;
+        cursor: pointer;
+        transition: box-shadow $transition;
+
+        // Hover & focus
+        &:hover:not(:disabled),
+        &:focus:not(:disabled) {
+            box-shadow: $box-shadow, $box-shadow, $box-shadow;
+        }
+
+        // Real color picker
+        &::-webkit-color-swatch {
+            width: 100%;
+            height: em(56);
+            margin-top: em(-16);
+            margin-left: em(-16);
+            margin-right: em(-16);
+            border: none;
+            border-radius: $border-radius;
+        }
+    }
+
+    // Input range
+    input[type='range'] {
+        width: 100%;
+
+        background: transparent;
+        font-size: em(16);
+
+        appearance: none;
+
+        &::-webkit-slider-runnable-track {
+            width: 100%;
+            height: em(4);
+            border-radius: $border-radius;
+            box-shadow: $box-shadow;
+
+            background: $color-white;
+
+            cursor: pointer;
+            &:hover:not(:disabled) {
+                box-shadow: $box-shadow $box-shadow;
+            }
+        }
+
+        &::-webkit-slider-thumb {
+            height: em(24);
+            width: em(24);
+            margin-top: em(-10);
+            border-radius: $border-radius * 2;
+            box-shadow: $box-shadow;
+
+            background: $color-red;
+
+            cursor: pointer;
+            appearance: none;
+
+            &:hover:not(:disabled),
+            &:focus:not(:disabled) {
+                box-shadow: $box-shadow $box-shadow $box-shadow;
+            }
+        }
+    }
+
+    // Switch button
+    .switch {
+        @include flex($ai: center);
+
+        // Checkbox & behaviour
+        &__checkbox {
+            display: none;
+            &:checked {
+                + .switch__label {
+                    background-color: $color-green;
+                    &:before {
+                        transform: translateX(#{em(24)});
+                    }
+                }
+
+                // Text
+                ~ .switch__text {
+                    &:before {
+                        content: 'Inset';
+                    }
+                }
+            }
+        }
+
+        // Fake button
+        &__label {
+            @include position(relative);
+
+            display: inline-block;
+            width: em(48);
+            height: em(24);
+            border-radius: em(24);
+
+            background-color: $color-red;
+
+            cursor: pointer;
+            transition: $transition;
+
+            // Button
+            &:before {
+                @include position(absolute, $t: em(2), $l: em(2));
+
+                display: block;
+                width: em(20);
+                height: em(20);
+                border-radius: 50%;
+                box-shadow: $box-shadow;
+
+                background-color: $color-white;
+
+                content: '';
+                transition: $transition;
+            }
+        }
+
+        // Text
+        &__text {
+            margin-left: em(16);
+            &:before {
+                content: 'Offset';
+            }
+        }
+    }
+
+    // Radio button
+    .radio {
+        &__group {
+            @include grid($gc: repeat(4, (minmax(0, 1fr))), $gg: em(24));
+        }
+        &__container {
+            @include flex($ai: center, $jc: flex-start);
+
+            height: em(48);
+            padding: em(8) em(16);
+            border-radius: $border-radius * 3;
+            box-shadow: $box-shadow;
+
+            background-color: $color-white;
+
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover:not(:disabled) {
+                box-shadow: $box-shadow, $box-shadow;
+            }
+        }
+        &__button {
+            @include position(relative);
+            @include flex($ai: center, $jc: center);
+
+            width: em(24);
+            height: em(24);
+            padding-left: em(40);
+            font-size: em(16);
+
+            cursor: pointer;
+            user-select: none;
+
+            /* Hide the browser's default radio button */
+            &__hide {
+                @include position(absolute);
+
+                width: 0;
+                height: 0;
+                opacity: 0;
+
+                cursor: pointer;
+
+                // Checked
+                &:checked {
+                    + .radio__button__checkmark {
+                        background-color: $color-red;
+
+                        &:after {
+                            @include position(absolute, $t: em(8), $l: em(8));
+
+                            display: block;
+                            width: em(8);
+                            height: em(8);
+                            border-radius: 50%;
+
+                            background: $color-white;
+                        }
+                    }
+                }
+
+                // Hover
+                &:hover:not(:checked):not(:disabled) {
+                    + .radio__button__checkmark {
+                        background-color: $color-red;
+                    }
+                }
+            }
+
+            /* Create a custom radio button */
+            &__checkmark {
+                @include position(absolute, $t: 0, $l: 0);
+
+                height: em(24);
+                width: em(24);
+                background-color: $color-gray--light;
+                border-radius: 50%;
+
+                transition: $transition;
+
+                &:after {
+                    @include position(absolute);
+
+                    display: none;
+
+                    content: '';
+                }
+            }
         }
     }
 
@@ -108,6 +314,7 @@ body {
     select {
         @include background-image($image: '#{$path-image}/svg/chevron.svg', $bs: em(24), $bp: right em(16) center);
 
+        width: 100%;
         height: em(40);
         padding: em(8) em(24);
         border: none;
@@ -122,8 +329,8 @@ body {
         appearance: none;
 
         // Hover & focus
-        &:hover,
-        &:focus {
+        &:hover:not(:disabled),
+        &:focus:not(:disabled) {
             box-shadow: $box-shadow, $box-shadow, $box-shadow;
         }
     }

@@ -17,17 +17,6 @@ ${space}font-style: normal;
 <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
     );
 
-    /////////////////////////
-    // Font upload
-    $('#font-upload').on('input', function () {
-        fName = $(this).prop('files')[0].name.split('.')[0].split('-')[0];
-        fFile = $(this).prop('files')[0].name.split('.')[0];
-        $('label[for="font-upload"]').html(fName);
-
-        // disable inputs
-        $('input[aria-label="font-name"]').attr('disabled', 'disabled');
-        $('input[aria-label="font-file"]').attr('disabled', 'disabled');
-    });
 
     /////////////////////////
     // Font name
@@ -90,4 +79,6 @@ ${space}font-style: normal;
         // Remove code
         $('#code-result-container').html('')
     });
+
+    $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
 });

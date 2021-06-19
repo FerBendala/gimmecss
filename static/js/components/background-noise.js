@@ -100,7 +100,7 @@ $(function () {
     // watch changes to add background-noise values
     $('input').on('input change', function () {
         $('#code-result-container').html(`
-            <pre class="overflow-auto" style="height: 200px;"><code class="css">background-color: ${$('#background-noise-results').css("backgroundColor")};
+            <pre class="overflow-auto"><code class="css">background-color: ${$('#background-noise-results').css("backgroundColor")};
 background-repeat: ${$('#background-noise-results').css("backgroundRepeat")};
 background-position: ${$('#background-noise-results').css("backgroundPosition")};
 background-image: ${$('#background-noise-results').css("backgroundImage")};</pre></code>

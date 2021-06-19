@@ -9,8 +9,8 @@ $(function () {
     // Text edit
     $('input[aria-label="text-edit"]').on('input', function () {
         tEdit = $(this).val();
-        $("#text-gradient-results-text").html('');
-        $('#text-gradient-results-text').append(tEdit);
+        $("#text-gradient-results").html('');
+        $('#text-gradient-results').append(tEdit);
     });
 
 
@@ -18,7 +18,7 @@ $(function () {
     // Font size
     $('#text-size').on('input', function () {
         tfSize = $(this).val();
-        $('#text-gradient-results-text').css('fontSize', `${tfSize}px`);
+        $('#text-gradient-results').css('fontSize', `${tfSize}px`);
         $('input[aria-label="text-size"]').val($(this).val());
     });
     $('input[aria-label="text-size"]').on('input', function () {
@@ -36,7 +36,7 @@ $(function () {
             fSize = min;
         }
 
-        $('#text-gradient-results-text').css('fontSize', `${tfSize}px`);
+        $('#text-gradient-results').css('fontSize', `${tfSize}px`);
         $('#text-size').val($(this).val());
     });
 
@@ -53,7 +53,7 @@ $(function () {
     gp.addHandler(50, '#a12623');
     gp.addHandler(100, '#68191a');
     gp.on('change', function (complete) {
-        $('#text-gradient-results-text').css({
+        $('#text-gradient-results').css({
             'background': gp.getSafeValue(),
             '-webkit-background-clip': 'text',
             '-webkit-text-fill-color': 'transparent'

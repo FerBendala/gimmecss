@@ -2,5 +2,87 @@
 {% set active_page = "border-radius" %}
 
 {% block main %}
-    <p>{{ active_page }}</p>
+        <!-- Adds -->
+        <div class="ads"></div>
+
+        <!-- Title -->
+        <header class="tools-header">
+            <h1 class="tools-header__title">Border radius generator</h1>
+        </header>
+
+        <!-- Result -->
+        <section id="{{ active_page }}-results-container" class="tools-result">
+            <!-- Reset button -->
+            <button class="tools-result__reset reset">Reset view</button>
+            <span class="tools-result__badge">View</span>
+            <div id="{{ active_page }}-results" class="tools-result__view"></div>
+        </section>
+
+        <section class="tools-container">
+            <!-- Options -->
+            <section class="tools-options">
+                <!-- Settings -->
+                <div class="tools-options__settings tools-options__settings--{{ active_page }}">
+                    <!-- border-left-all -->
+                    <div>
+                        <input type="number" aria-label="border-all" aria-describedby="border-all-description" min="0" max="200" placeholder="All border">
+                        <input type="range" class="custom-range w-100" id="border-all" min="0" max="200" value="0">
+                    </div>
+                    <!-- border-left-top -->
+                    <div>
+                        <input type="number" aria-label="border-top-left" aria-describedby="border-top-left-description" min="0" max="200" placeholder="Border top left">
+                        <input type="range" class="custom-range w-100" id="border-top-left" min="0" max="200" value="0">
+                    </div>
+                    <!-- border-right-top -->
+                    <div>
+                        <input type="number" aria-label="border-top-right" aria-describedby="border-top-right-description" min="0" max="200" placeholder="Border top right">
+                        <input type="range" class="custom-range w-100" id="border-top-right" min="0" max="200" value="0">
+                    </div>
+                    <!-- border-right-bottom -->
+                    <div>
+                        <input type="number" aria-label="border-bottom-right" aria-describedby="border-bottom-right-description" min="0" max="200" placeholder="Border bottom left">
+                        <input type="range" class="custom-range w-100" id="border-bottom-right" min="0" max="200" value="0">
+                    </div>
+                    <!-- border-left-bottom -->
+                    <div>
+                        <input type="number" aria-label="border-bottom-left" aria-describedby="border-bottom-left-description" min="0" max="200" placeholder="Border bottom right">
+                        <input type="range" class="custom-range w-100" id="border-bottom-left" min="0" max="200" value="0">
+                    </div>
+                    <!-- border-width -->
+                    <div>
+                        <input type="number" aria-label="border-width" aria-describedby="border-width-description" min="0" max="200" placeholder="Border width">
+                        <input type="range" class="custom-range w-100" id="border-width" min="0" max="200" value="0">
+                    </div>
+                    <!-- border-style -->
+                    <select id="border-style">
+                        <option value="">Border style</option>
+                        <option value="1">Solid</option>
+                        <option value="2">Dotted</option>
+                        <option value="3">Dashed</option>
+                        <option value="4">Double</option>
+                        <option value="5">Groove</option>
+                        <option value="6">Inset</option>
+                        <option value="7">Outset</option>
+                        <option value="8">Hidden</option>
+                    </select>
+                    <!-- border-color -->
+                    <input type="color" id="border-color" aria-label="border-color" aria-describedby="border-color-description">
+                    <!-- background-color -->
+                    <input type="color" id="background-color" aria-label="background-color" aria-describedby="background-color-description">
+                </div>
+        
+                <!-- Code result -->
+                <div id="code-result-container" class="tools-options__code"></div>
+    
+                <!-- Description -->
+                <article class="box">
+                    <h2 class="box__title">Border radius</h2>
+                    <p class="box__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.</p>
+                </article>
+            </section>
+
+            <!-- Ads -->
+            <section class="ads"></section>
+        </section>
+    </div>
 {% endblock %}

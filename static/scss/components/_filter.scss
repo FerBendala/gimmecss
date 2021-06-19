@@ -2,6 +2,7 @@
     // Title
     &__search[type="text"] {
         @include background-image($image: '#{$path-image}/svg/search.svg', $bs: em(24), $bp: right em(24) center);
+        @include placeholder($o: 0.48);
 
         width: 100%;
         height: em(56);
