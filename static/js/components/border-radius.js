@@ -277,19 +277,7 @@ border: ${$('#border-radius-results').css("border")};<div style="display:none">}
     /////////////////////////
     // Reset button
     $('.reset').on('click', function () {
-        // Null values to inputs
-        $('input').val(null);
-        $('input[type="range"]').val(0);
-
-        // Enable all borders input
-        $('#border-all').prop("disabled", false);
-        $('input[aria-label="border-all"]').prop("disabled", false);
-
-        // Remove Visual borders to results rectangle 
-        $('#border-radius-results').css('borderRadius', 0)
-
-        // Remove code
-        $('#code-result-container').html('')
+        location.reload();
     });
 
     // Start hljs

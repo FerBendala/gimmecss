@@ -135,15 +135,7 @@ background-image: ${$('#background-noise-results').css("backgroundImage")};<div 
     /////////////////////////
     // Reset button
     $('.reset').on('click', function () {
-        // Null values to inputs
-        $('input').val(null);
-        $('input[type="range"]').val(0);
-
-        // Remove Visual borders to results rectangle 
-        $('#background-noise-results').css('background-noise', 'none')
-
-        // Remove code
-        $('#code-result-container').html('')
+        location.reload();
     });
 
     $('pre code').each(function (i, e) { hljs.highlightBlock(e) });

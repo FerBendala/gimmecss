@@ -69,15 +69,7 @@ ${space}font-style: normal;
     /////////////////////////
     // Reset button
     $('.reset').on('click', function () {
-        // Null values to inputs
-        $('input').val(null);
-        $('input[type="range"]').val(0);
-
-        // Remove Visual borders to results rectangle 
-        $('#font-family-results').css('font-family', 'none')
-
-        // Remove code
-        $('#code-result-container').html('')
+        location.reload();
     });
 
     $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
