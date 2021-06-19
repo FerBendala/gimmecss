@@ -1,0 +1,61 @@
+.banner {
+    @include flex();
+
+    margin-bottom: em(64);
+    border-radius: $border-radius * 2;
+
+    background-color: $color-gray--dark;
+
+    // Content
+    &__content {
+        @include flex($fd: column);
+
+        padding: em(32);
+
+        // Title
+        &__title {
+            margin-bottom: em(16);
+
+            font-size: em(32);
+            font-weight: 600;
+        }
+
+        // Text
+        &__text {
+            margin-bottom: em(16);
+
+            line-height: em(24);
+        }
+
+        // Button
+        &__button {
+            @include flex($ai: center, $jc: center);
+
+            width: em(200);
+            padding: em(12) em(16);
+            margin-top: auto;
+            border-radius: $border-radius;
+
+            background-color: $color-black;
+            color: $color-white;
+
+            font-size: em(15);
+            font-weight: 600;
+
+            transition: $transition;
+            &:hover {
+                background-color: $color-red;
+                color: $color-white;
+            }
+        }
+    }
+
+    // Image
+    &__figure {
+        padding: em(24);
+
+        &__image {
+            min-width: em(288);
+        }
+    }
+}

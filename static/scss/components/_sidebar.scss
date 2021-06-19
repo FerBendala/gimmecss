@@ -1,0 +1,236 @@
+// Sidebar
+.sidebar {
+    @include position(relative);
+
+    min-width: em(232);
+    max-width: em(232);
+
+    background-color: $color-black;
+    color: $color-white;
+
+    transition: all 0.3s;
+
+    // Nav
+    &__navigation {
+        height: 100vh;
+        padding: em(40) 0;
+
+        // Logo
+        &__logo {
+            padding: 0 0 em(40) em(48);
+            img {
+                width: em(112);
+            }
+        }
+
+        // Items
+        &__items {
+            // Item
+            @include flex($fd: column);
+
+            height: calc(100vh - #{em(152)});
+
+            .item {
+                // Menu link
+                &__link {
+                    @include position(relative);
+                    @include flex($ai: center);
+
+                    height: em(40);
+                    padding: 0 em(24);
+                    opacity: 0.72;
+
+                    color: $color-white;
+
+                    transition: $transition;
+
+                    // Color bar
+                    &:before {
+                        @include position(absolute, $l: 0, $t: 0, $b: 0);
+
+                        display: block;
+                        width: em(0);
+
+                        background-color: $color-red;
+
+                        content: '';
+                    }
+
+                    // Color background
+                    &:after {
+                        @include position(absolute, $l: em(-232));
+
+                        width: em(232);
+                        height: em(40);
+
+                        background: linear-gradient(90deg, rgba(239, 68, 68, 0.24) 0%, rgba(239, 68, 68, 0) 100%);
+
+                        content: '';
+                    }
+
+                    // Image
+                    &__image {
+                        transition: inherit;
+
+                        // Icon
+                        @each $icon in $menu-icons {
+                            &.#{$icon} {
+                                &:before {
+                                    @include background-image($image: '#{$path-image}/svg/menu/resting/#{$icon}.svg', $bs: contain, $bp: left center);
+
+                                    display: block;
+                                    width: em(16);
+                                    max-width: em(16);
+                                    height: em(16);
+                                    max-height: em(16);
+
+                                    content: '';
+                                    transition: inherit;
+                                }
+                            }
+                        }
+                    }
+
+                    // Text
+                    &__text {
+                        margin-left: em(16);
+
+                        font-size: em(14);
+                    }
+
+                    // Active
+                    &.active {
+                        pointer-events: none;
+
+                        // Color bar
+                        &:before {
+                            animation: menu-color-bar 0.4s ease forwards;
+                        }
+
+                        // Color background
+                        &:after {
+                            animation: menu-background 0.4s ease forwards;
+                        }
+                    }
+
+                    // Hover & active
+                    &:hover,
+                    &.active {
+                        color: $color-red;
+
+                        // Image
+                        .item__link__image {
+                            // Icon
+                            @each $icon in $menu-icons {
+                                &.#{$icon} {
+                                    &:before {
+                                        @include background-image($image: '#{$path-image}/svg/menu/hover/#{$icon}.svg');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Social link
+                &__social {
+                    margin-top: auto;
+
+                    // Title
+                    &__title {
+                        display: block;
+                        opacity: 0.72;
+
+                        color: $color-white;
+
+                        font-size: em(14);
+                        text-transform: uppercase;
+                        text-align: center;
+
+                        // Bottom bar
+                        &:after {
+                            display: block;
+                            width: em(72);
+                            height: em(2);
+                            border-radius: em(2);
+                            margin: em(8) auto em(16);
+
+                            background-color: $color-white;
+
+                            content: '';
+                        }
+                    }
+
+                    // List
+                    &__list {
+                        @include flex($ai: center, $jc: center);
+
+                        // Links
+                        a {
+                            display: block;
+                            width: em(24);
+                            max-width: em(24);
+                            height: em(24);
+                            max-height: em(24);
+
+                            // Hover
+                            &:hover {
+                                // Facebook
+                                &.facebook {
+                                    @include background-image($image: '#{$path-image}/svg/menu/hover/facebook.svg');
+                                }
+    
+                                // Twitter
+                                &.twitter {
+                                    @include background-image($image: '#{$path-image}/svg/menu/hover/twitter.svg');
+                                }
+    
+                                // Linkedin
+                                &.linkedin {
+                                    @include background-image($image: '#{$path-image}/svg/menu/hover/linkedin.svg');
+                                }
+                            }
+                        }
+
+                        // Facebook
+                        .facebook {
+                            @include background-image($image: '#{$path-image}/svg/menu/resting/facebook.svg', $bs: contain, $bp: left center);
+
+                            margin-right: em(16);
+                        }
+
+                        // Twitter
+                        .twitter {
+                            @include background-image($image: '#{$path-image}/svg/menu/resting/twitter.svg', $bs: contain, $bp: left center);
+
+                            margin-right: em(16);
+                        }
+
+                        // Linkedin
+                        .linkedin {
+                            @include background-image($image: '#{$path-image}/svg/menu/resting/linkedin.svg', $bs: contain, $bp: left center);
+                        }
+                    }
+
+                    // Owner
+                    &__owner {
+                        display: block;
+                        opacity: 0.72;
+                        margin-top: em(32);
+
+                        color: $color-red;
+
+                        font-size: em(14);
+                        text-align: center;
+                        text-decoration: underline;
+                        text-decoration-color: transparent;
+
+                        &:hover {
+                            text-decoration-color: $color-red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

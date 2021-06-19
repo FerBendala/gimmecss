@@ -1,0 +1,22 @@
+// ========
+// Menu active highlight animation
+// ========
+// Color bar
+@keyframes menu-color-bar {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: em(4);
+    }
+}
+
+// Background
+@keyframes menu-background {
+    0% {
+        @include position(absolute, $l: em(-464));
+    }
+    100% {
+        @include position(absolute, $l: 0);
+    }
+}

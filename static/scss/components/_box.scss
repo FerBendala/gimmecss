@@ -1,0 +1,76 @@
+@use "sass:math";
+
+.box {
+    padding: em(32);
+    border-radius: $border-radius * 2;
+    box-shadow: $box-shadow;
+
+    background-color: $color-white;
+
+    transition: box-shadow $transition;
+
+    // Container
+    &__container {
+        &--home {
+            @include grid($gc: repeat(2, minmax(0, 1fr)), $gg: em(24));
+            
+            padding-top: em(24);
+        }
+    }
+
+    // Title
+    &__title {
+        margin-bottom: em(8);
+
+        font-size: em(32);
+        font-weight: 700;
+    }
+
+    // Text
+    &__text {
+        margin-bottom: em(24);
+    }
+
+    // View
+    &__view {
+        @include position(relative);
+        @include flex($ai: center, $jc: center);
+
+        width: 100%;
+        height: em(112);
+        border-radius: $border-radius;
+
+        background-color: $color-black;
+
+        // Badge
+        &__badge {
+            @include position(absolute, $t: 0, $l: em(16));
+            @include flex($ai: center, $jc: center);
+
+            width: em(112);
+            height: em(32);
+            border-radius: 0 0 math.div($border-radius, 2) math.div($border-radius, 2);
+
+            background-color: $color-red;
+            color: $color-white;
+
+            font-size: em(8);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: em(2);
+
+            pointer-events: none;
+        }
+
+        // Image
+        &__image {
+            width: 100%;
+            max-height: -webkit-fill-available;
+        }
+    }
+
+    // Hover & focus
+    &:hover {
+        box-shadow: $box-shadow, $box-shadow, $box-shadow;
+    }
+}

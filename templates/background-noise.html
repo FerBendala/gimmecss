@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% set active_page = "background-noise" %}
+
+{% block main %}
+        <!-- Adds -->
+        <div class="ads"></div>
+
+        <!-- Title -->
+        <header class="tools-header">
+            <h1 class="tools-header__title">Background noise generator</h1>
+        </header>
+
+        <!-- Result -->
+        <section id="{{ active_page }}-results-container" class="tools-result">
+            <!-- Reset button -->
+            <button class="tools-result__reset reset">Reset view</button>
+            <span class="tools-result__badge">View</span>
+            <div id="{{ active_page }}-results" class="tools-result__view"></div>
+        </section>
+
+        <section class="tools-container">
+            <!-- Options -->
+            <section class="tools-options">
+                <!-- Settings -->
+                <div class="tools-options__settings tools-options__settings--{{ active_page }}">
+                    <!-- noise-opacity -->
+                    <input type="number" class="form-control" aria-label="noise-opacity" aria-describedby="noise-opacity-description" min="0" max="1" value="0" step="0.05">
+                    <input type="range" class="custom-range w-100" id="noise-opacity" min="0" max="1" value="0" step="0.05">
+                    <!-- noise-density -->
+                    <input type="number" class="form-control" aria-label="noise-density" aria-describedby="noise-density-description" min="1" max="100" value="100">
+                    <input type="range" class="custom-range w-100" id="noise-density" min="1" max="100" value="100">
+                    <!-- background-color -->
+                    <input type="color" id="background-color" class="form-control" aria-label="background-color" aria-describedby="background-color-description">
+                </div>
+        
+                <!-- Code result -->
+                <div id="code-result-container" class="tools-options__code"></div>
+    
+                <!-- Description -->
+                <article class="box">
+                    <h2 class="box__title">Background noise</h2>
+                    <p class="box__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.</p>
+                </article>
+            </section>
+
+            <!-- Ads -->
+            <section class="ads"></section>
+        </section>
+    </div>
+{% endblock %}

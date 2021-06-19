@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% set active_page = "home" %}
+{% set properties = [
+    ('background-gradient', 'Background gradient', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.'),
+    ('background-noise', 'Background noise', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.'),
+    ('box-shadow', 'Box shadow', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.'),
+    ('border-radius', 'Border radius', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.'),
+    ('css-arrow', 'CSS Arrow', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.'),
+    ('text-gradient', 'Text gradient', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.'),
+    ('text-shadow', 'Text shadow', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.'),
+    ('font-styler', 'Font styler', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum. Morbi et purus ac tellus sodales tincidunt. Fusce vestibulum aliquet lectus ac ultrices. Curabitur id ligula vitae nisi luctus tempor sit amet at odio. Vestibulum ante ipsum primis.'),
+] %}
+
+{% block main %}
+    <!-- Header banner -->
+    <div class="banner">
+        <!-- Content -->
+        <div class="banner__content">
+            <h1 class="banner__content__title">Welcome to Gimme CSS!</h1>
+            <p class="banner__content__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan fermentum dui, non sodales ipsum hendrerit ut. Proin maximus elit et libero rhoncus sagittis. Donec gravida augue eu dui feugiat, sed dignissim mi ultrices. Quisque ultrices metus et enim dignissim dictum.</p>
+            <a href="#csstools" class="banner__content__button">CSS Tools</a>
+        </div>
+        <!-- Figure -->
+        <figure class="banner__figure">
+            <img src="{{ url_for('static', filename='images/svg/desktop.svg') }}" alt="Gimmics" class="banner__figure__image">
+        </figure>
+    </div>
+
+    <!-- Header with filter -->
+    <header class="filter">
+        <!-- Features -->
+        <input type="text" name="filter" id="filter" class="js-filter filter__search" autocomplete="off" placeholder="Search any CSS property" list="properties">
+
+        <datalist id="properties">
+            {% for path, title, text in properties %}
+                <option value="{{ title }}">
+            {% endfor %}
+        </datalist>
+    </header>
+
+    <!-- Boxes -->
+    <section id="csstools" class="js-boxes-search box__container--home">
+        {% for path, title, text in properties %}
+            <article class="js-box-search box">
+                <h2 class="box__title"><a href="/{{ path }}/">{{ title }}</a></h2>
+                <p class="box__text">{{ text }}</p>
+                <div class="box__view">
+                    <div class="box__view__badge">View</div>
+                    <img src="{{ url_for('static', filename='images/svg/home/') }}{{ path }}.svg" alt="{{ title }}" class="box__view__image">
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/components/filter.js') }}"></script>
+{% endblock %}

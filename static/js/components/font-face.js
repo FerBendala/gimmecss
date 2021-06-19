@@ -1,0 +1,93 @@
+$(function () {
+
+    // variables
+    var space = '&nbsp;&nbsp;&nbsp;&nbsp;'    // => Spaces
+    var fName = '{ font name }';              // => Font name
+    var fFile = '{ file }';                   // => Font file
+    var fPath = '{ font path }';              // => Font path
+
+    $('#code-result-container').html(`
+        <pre id="code-result"><code class="css">@font-face {
+${space}font-family: '${fName}';
+${space}src: url('${fPath}/${fFile}.woff2') format('woff2'), 
+         url('${fPath}/${fFile}.woff') format('woff');
+${space}font-weight: normal;
+${space}font-style: normal;
+}</code></pre>
+<div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
+    );
+
+    /////////////////////////
+    // Font upload
+    $('#font-upload').on('input', function () {
+        fName = $(this).prop('files')[0].name.split('.')[0].split('-')[0];
+        fFile = $(this).prop('files')[0].name.split('.')[0];
+        $('label[for="font-upload"]').html(fName);
+
+        // disable inputs
+        $('input[aria-label="font-name"]').attr('disabled', 'disabled');
+        $('input[aria-label="font-file"]').attr('disabled', 'disabled');
+    });
+
+    /////////////////////////
+    // Font name
+    $('input[aria-label="font-name"]').on('input', function () {
+        fName = $(this).val();
+    });
+
+
+    /////////////////////////
+    // Font file
+    $('input[aria-label="font-file"]').on('input', function () {
+        fFile = $(this).val();
+    });
+
+
+    /////////////////////////
+    // Font path
+    $('input[aria-label="font-path"]').on('input', function () {
+        fPath = $(this).val();
+    });
+
+
+    /////////////////////////
+    // CODE RESULTS
+    // watch changes to add font-family values
+    $('input, select').on('input change', function () {
+        $('#code-result-container').html(`
+        <pre id="code-result"><code class="css">@font-face {
+${space}font-family: '${fName}';
+${space}src: url('${fPath}/${fFile}.woff2') format('woff2'), 
+         url('${fPath}/${fFile}.woff') format('woff');
+${space}font-weight: normal;
+${space}font-style: normal;
+}</code></pre>
+<div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
+        );
+        $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
+    });
+
+
+    /////////////////////////
+    // Reset input value in focus when val is 0
+    $('input[aria-label*="Text"]').on('click', function () {
+        if ($(this).val() == 0) {
+            $(this).val('');
+        }
+    });
+
+
+    /////////////////////////
+    // Reset button
+    $('.reset').on('click', function () {
+        // Null values to inputs
+        $('input').val(null);
+        $('input[type="range"]').val(0);
+
+        // Remove Visual borders to results rectangle 
+        $('#font-family-results').css('font-family', 'none')
+
+        // Remove code
+        $('#code-result-container').html('')
+    });
+});

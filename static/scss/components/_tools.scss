@@ -1,0 +1,197 @@
+@use "sass:math";
+
+.tools {
+    // Header
+    &-header {
+        &__title {
+            margin-bottom: em(16);
+
+            font-size: em(40);
+            font-weight: bold;
+        }
+    }
+
+    // Result
+    &-result {
+        @include position(relative);
+
+        height: em(216);
+        padding: em(48) em(32) em(32);
+        margin-bottom: em(40);
+        border-radius: $border-radius * 2;
+        overflow: hidden;
+
+        background-color: $color-black;
+        // Reset button
+        &__reset {
+            @include position(absolute, $t: 0, $r: 0);
+            @include flex($ai: center, $jc: center);
+
+            width: em(200);
+            height: em(40);
+            border: none;
+            border-radius: 0 0 0 math.div($border-radius, 2);
+
+            background-color: $color-red;
+            color: $color-white;
+
+            font-size: em(11);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: em(2);
+
+            cursor: pointer;
+            transition: $transition;
+
+            // Icon
+            &:before {
+                @include background-image($image: '#{$path-image}/svg/trash.svg', $bs: contain, $bp: left center);
+
+                display: block;
+                width: em(24);
+                max-width: em(24);
+                height: em(24);
+                max-height: em(24);
+                margin-right: em(8);
+
+                content: '';
+            }
+
+            // Hover
+            &:hover {
+                background-color: darken($color-red, 24%);
+            }
+        }
+
+        // badge
+        &__badge {
+            @include position(absolute, $t: 0, $l: em(32));
+            @include flex($ai: center, $jc: center);
+
+            width: em(112);
+            height: em(40);
+            border-radius: 0 0 math.div($border-radius, 2) math.div($border-radius, 2);
+
+            background-color: $color-red;
+            color: $color-white;
+
+            font-size: em(11);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: em(2);
+
+            pointer-events: none;
+        }
+
+        // badge
+        &__view {
+            width: 100%;
+            height: 100%;
+            border-radius: $border-radius;
+        }
+    }
+
+    // Container
+    &-container {
+        @include grid($gc: minmax(0, 2fr) em(300), $gg: em(40));
+    }
+
+    // Options
+    &-options {
+        // Settings
+        &__settings {
+            // Backrgound gradient
+            &--background-gradient {
+                @include grid($gc: minmax(0, 1fr) minmax(0, 1fr), $gg: em(24));
+                #grapick {
+                    @include grid-child($gcs: 1, $gce: 3);
+                }
+            }
+        }
+
+        // Code
+        &__code {
+            @include position(relative);
+
+            margin-top: em(40);
+            margin-bottom: em(32);
+            border-radius: $border-radius * 2;
+            overflow: hidden;
+
+            // Code view
+            .hljs {
+                padding: em(48) em(32) em(32);
+
+                white-space: break-spaces;
+            }
+
+            // badge
+            &__badge {
+                @include position(absolute, $t: 0, $l: em(32));
+                @include flex($ai: center, $jc: center);
+
+                width: em(112);
+                height: em(40);
+                border-radius: 0 0 math.div($border-radius, 2) math.div($border-radius, 2);
+
+                background-color: $color-red;
+                color: $color-white;
+
+                font-size: em(11);
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: em(2);
+
+                pointer-events: none;
+            }
+
+            // Copy button
+            &__copy {
+                @include position(absolute, $t: 0, $r: 0);
+                @include flex($ai: center, $jc: center);
+
+                width: em(312);
+                height: em(40);
+                border: none;
+                border-radius: 0 0 0 math.div($border-radius, 2);
+
+                background-color: $color-red;
+                color: $color-white;
+
+                font-size: em(11);
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: em(2);
+
+                cursor: pointer;
+                transition: $transition;
+
+                // Icon
+                &:before {
+                    @include background-image($image: '#{$path-image}/svg/copy.svg', $bs: contain, $bp: left center);
+
+                    display: block;
+                    width: em(24);
+                    max-width: em(24);
+                    height: em(24);
+                    max-height: em(24);
+                    margin-right: em(8);
+
+                    content: '';
+                }
+
+                // Hover
+                &:hover {
+                    background-color: darken($color-red, 24%);
+                }
+            }
+        }
+
+        // Box
+        .box {
+            &__text {
+                margin: 0;
+            }
+        }
+    }
+}

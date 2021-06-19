@@ -1,0 +1,14 @@
+.filter {
+    // Title
+    &__search[type="text"] {
+        @include background-image($image: '#{$path-image}/svg/search.svg', $bs: em(24), $bp: right em(24) center);
+
+        width: 100%;
+        height: em(56);
+
+        // Hide datalist
+        &::-webkit-calendar-picker-indicator {
+            opacity: 0;
+        }
+    }
+}

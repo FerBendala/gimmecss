@@ -1,0 +1,44 @@
+// =============================================================================
+// @media and containers
+// =============================================================================
+$max-width-sm: 576px;
+$max-width-md: 768px;
+$max-width-lg: 992px;
+$max-width-xl: 1200px;
+
+$max-container-width-xs: 100%;
+$max-container-width-sm: 512px;
+$max-container-width-md: 704px;
+$max-container-width-lg: 928px;
+$max-container-width-xl: 1144px;
+
+// =============================================================================
+// Color
+// =============================================================================
+$color-gray--light: #f0f0f0;
+$color-gray--dark: #d9d9d9;
+$color-black: #102525;
+$color-white: #ffffff;
+$color-red: #ef4444;
+
+// =============================================================================
+// Text
+// =============================================================================
+$font-family: 'RedHatDisplay', sans-serif;
+
+$font-title--h1: normal 500 #{em(70)}/ 1.1 $font-family;
+$font-title--h2: normal 400 #{em(58)}/ 1.1 $font-family;
+$font-title--h3: normal 500 #{em(24)}/ 1.4 $font-family;
+
+// =============================================================================
+// Display & Box Model
+// =============================================================================
+$box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+$border-radius: 8px;
+
+// =============================================================================
+// Other
+// =============================================================================
+$transition: 0.4s ease-out;
+$path-image: '/static/images';
+$menu-icons: 'home', 'background-gradient', 'background-noise', 'box-shadow', 'border-radius', 'css-arrow', 'text-gradient', 'text-shadow', 'font-styler', 'font-face';
