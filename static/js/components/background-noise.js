@@ -96,16 +96,29 @@ $(function () {
     });
 
     /////////////////////////
+    // START CODE RESULTS
+    $('#code-result-container').html(`
+            <pre class="overflow-auto"><code class="css"><div style="display:none">.class{</div>background-color: ${$('#background-noise-results').css("backgroundColor")};
+background-repeat: ${$('#background-noise-results').css("backgroundRepeat")};
+background-position: ${$('#background-noise-results').css("backgroundPosition")};
+background-image: ${$('#background-noise-results').css("backgroundImage")};<div style="display:none">}</div></pre></code>
+                <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
+        );
+
+
+    /////////////////////////
     // CODE RESULTS
     // watch changes to add background-noise values
     $('input').on('input change', function () {
         $('#code-result-container').html(`
-            <pre class="overflow-auto"><code class="css">background-color: ${$('#background-noise-results').css("backgroundColor")};
+            <pre class="overflow-auto"><code class="css"><div style="display:none">.class{</div>background-color: ${$('#background-noise-results').css("backgroundColor")};
 background-repeat: ${$('#background-noise-results').css("backgroundRepeat")};
 background-position: ${$('#background-noise-results').css("backgroundPosition")};
-background-image: ${$('#background-noise-results').css("backgroundImage")};</pre></code>
+background-image: ${$('#background-noise-results').css("backgroundImage")};<div style="display:none">}</div></pre></code>
                 <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
         );
+
+        // Start hljs
         $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
     });
 
@@ -132,4 +145,6 @@ background-image: ${$('#background-noise-results').css("backgroundImage")};</pre
         // Remove code
         $('#code-result-container').html('')
     });
+
+    $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
 });

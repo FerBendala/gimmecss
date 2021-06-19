@@ -7,16 +7,16 @@ $(function () {
         min: 0,
         max: 100
     });
-    gp.addHandler(0, '#d2312e', 0);
-    gp.addHandler(50, '#a12623', 0);
-    gp.addHandler(100, '#68191a', 0);
+    gp.addHandler(0, '#EC008C', 0);
+    gp.addHandler(50, '#f4347a');
+    gp.addHandler(100, '#FC6767', 0);
     gp.on('change', function (complete) {
 
         $('#background-gradient-results').css({
             'background': gp.getSafeValue(),
         });
         $('#code-result-container').html(`
-            <pre><code class="css">background: ${gp.getValue()};</code></pre>
+            <pre><code class="css"><div style="display:none">.class{</div>background: ${gp.getValue()};<div style="display:none">}</div></code></pre>
             <button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span>`
         );
         $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
@@ -39,7 +39,7 @@ $(function () {
     // watch changes to add background-gradient values
     $('input').on('input change', function () {
         $('#code-result-container').html(`
-        <pre><code class="css">background: ${gp.getValue()};</code></pre>
+        <pre><code class="css"><div style="display:none">.class{</div>background: ${gp.getValue()};<div style="display:none">}</div></code></pre>
         <button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span>`
         );
         $('pre code').each(function (i, e) { hljs.highlightBlock(e) });

@@ -183,11 +183,19 @@ $(function () {
 
 
     /////////////////////////
+    // START CODE RESULTS
+    $('#code-result-container').html(`
+    <pre><code class="css"><div style="display:none">.class{</div>box-shadow: ${$('#box-shadow-results').css("boxShadow")};<div style="display:none">}</div></code></pre>
+    <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
+    );
+
+
+    /////////////////////////
     // CODE RESULTS
     // watch changes to add text-shadow values
     $('input').on('input change', function () {
         $('#code-result-container').html(`
-        <pre><code class="css">box-shadow: ${$('#box-shadow-results').css("boxShadow")};</code></pre>
+        <pre><code class="css"><div style="display:none">.class{</div>box-shadow: ${$('#box-shadow-results').css("boxShadow")};<div style="display:none">}</div></code></pre>
         <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
         );
         $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
@@ -216,4 +224,7 @@ $(function () {
         // Remove code
         $('#code-result-container').html('')
     });
+
+    // Start hljs
+    $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
 });

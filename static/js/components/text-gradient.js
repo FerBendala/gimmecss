@@ -49,9 +49,9 @@ $(function () {
         max: 100,
         height: '32px',
     });
-    gp.addHandler(0, '#d2312e');
-    gp.addHandler(50, '#a12623');
-    gp.addHandler(100, '#68191a');
+    gp.addHandler(0, '#EC008C');
+    gp.addHandler(50, '#f4347a');
+    gp.addHandler(100, '#FC6767');
     gp.on('change', function (complete) {
         $('#text-gradient-results').css({
             'background': gp.getSafeValue(),
@@ -59,9 +59,9 @@ $(function () {
             '-webkit-text-fill-color': 'transparent'
         });
         $('#code-result-container').html(`
-            <pre><code class="css">background: ${gp.getValue()};
+            <pre><code class="css"><div style="display:none">.class{</div>background: ${gp.getValue()};
 -webkit-background-clip: text;
--webkit-text-fill-color: transparent;</code></pre>
+-webkit-text-fill-color: transparent;<div style="display:none">}</div></code></pre>
 <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
         );
         $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
@@ -84,9 +84,9 @@ $(function () {
     // watch changes to add text-gradient values
     $('input').on('input change', function () {
         $('#code-result-container').html(`
-        <pre><code class="css">background: ${gp.getValue()};
+        <pre><code class="css"><div style="display:none">.class{</div>background: ${gp.getValue()};
 -webkit-background-clip: text;
--webkit-text-fill-color: transparent;</code></pre>
+-webkit-text-fill-color: transparent;<div style="display:none">}</div></code></pre>
 <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
         );
         $('pre code').each(function (i, e) { hljs.highlightBlock(e) });

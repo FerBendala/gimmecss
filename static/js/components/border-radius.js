@@ -239,12 +239,19 @@ $(function () {
 
 
     /////////////////////////
+    // START CODE RESULTS
+    $('#code-result-container').html(`
+            <pre><code class="css"><div style="display:none">.class{</div>border-radius: ${$('#border-radius-results').css("borderRadius")};
+border: ${$('#border-radius-results').css("border")};<div style="display:none">}</div></pre></code>
+                <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`);
+
+    /////////////////////////
     // CODE RESULTS
     // watch changes to add text-shadow values
     $('input, select').on('input change', function () {
         $('#code-result-container').html(`
-            <pre><code class="css">border-radius: ${$('#border-radius-results').css("borderRadius")};
-border: ${$('#border-radius-results').css("border")};</pre></code>
+            <pre><code class="css"><div style="display:none">.class{</div>border-radius: ${$('#border-radius-results').css("borderRadius")};
+border: ${$('#border-radius-results').css("border")};<div style="display:none">}</div></pre></code>
                 <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`);
         $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
     });
@@ -284,4 +291,7 @@ border: ${$('#border-radius-results').css("border")};</pre></code>
         // Remove code
         $('#code-result-container').html('')
     });
+
+    // Start hljs
+    $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
 });

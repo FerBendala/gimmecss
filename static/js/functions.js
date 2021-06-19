@@ -4,11 +4,12 @@ function copyToClipboard(element) {
     text = text.replace(/&nbsp;/g, '');
     text = text.replace(/<\/?span[^>]*>/g, "");
     text = text.replace(/<\/?span>/g, '\r');
+    text = text.replace(/<\/?div style="display:none">.class{/g, '\r');
+    text = text.replace(/<\/?div style="display:none">}/g, '\r');
+    text = text.replace(/<\/?div[^>]*>/g, "");
     element = $('<textarea>').appendTo('body').val(text).select();
     document.execCommand('copy');
     element.remove();
-
-    console.log(text);
 }
 
 // Convert hex to rgba
@@ -24,3 +25,4 @@ function hexToRgbA(hex) {
     }
     throw new Error('Bad Hex');
 }
+

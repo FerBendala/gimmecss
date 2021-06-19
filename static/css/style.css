@@ -1303,7 +1303,26 @@ body .content {
 .tools-options__code .hljs {
   padding: 3em 2em 2em;
   background-color: #102525;
+  color: #f0f0f0;
   white-space: break-spaces;
+}
+.tools-options__code .hljs-selector-class, .tools-options__code .hljs-selector-pseudo {
+  color: #ffc929;
+}
+.tools-options__code .hljs-number {
+  color: #ff9800;
+}
+.tools-options__code .hljs-built_in {
+  color: #ffe500;
+}
+.tools-options__code .hljs-attribute {
+  color: #0ee4ff;
+}
+.tools-options__code .hljs-string {
+  color: #1fc556;
+}
+.tools-options__code .hljs-keyword {
+  color: #ff50e2;
 }
 .tools-options__code__badge {
   position: absolute;

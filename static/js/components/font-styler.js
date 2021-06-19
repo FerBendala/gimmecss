@@ -157,11 +157,9 @@ $(function () {
 
 
     /////////////////////////
-    // CODE RESULTS
-    // watch changes to add font-family values
-    $('input, select').on('input change', function () {
-        $('#code-result-container').html(`
-            <pre><code class="css">font-family: ${$('#font-styler-results').css("fontFamily")};
+    // START CODE RESULTS
+    $('#code-result-container').html(`
+    <pre><code class="css"><div style="display:none">.class{</div>font-family: ${$('#font-styler-results').css("fontFamily")};
 font-weight: ${$('#font-styler-results').css("fontWeight")};
 font-style: ${$('#font-styler-results').css("fontStyle")};
 font-size: ${$('#font-styler-results').css("fontSize")};
@@ -172,7 +170,27 @@ text-align: ${$('#font-styler-results').css("textAlign")};
 text-decoration: ${$('#font-styler-results').css("textDecoration")};
 text-transform: ${$('#font-styler-results').css("textTransform")};
 
-color: ${$('#font-styler-results').css("color")};</code></pre>
+color: ${$('#font-styler-results').css("color")};<div style="display:none">}</div></code></pre>
+<div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
+);
+
+    /////////////////////////
+    // CODE RESULTS
+    // watch changes to add font-family values
+    $('input, select').on('input change', function () {
+        $('#code-result-container').html(`
+            <pre><code class="css"><div style="display:none">.class{</div>font-family: ${$('#font-styler-results').css("fontFamily")};
+font-weight: ${$('#font-styler-results').css("fontWeight")};
+font-style: ${$('#font-styler-results').css("fontStyle")};
+font-size: ${$('#font-styler-results').css("fontSize")};
+
+line-height: ${$('#font-styler-results').css("lineHeight")};
+
+text-align: ${$('#font-styler-results').css("textAlign")};
+text-decoration: ${$('#font-styler-results').css("textDecoration")};
+text-transform: ${$('#font-styler-results').css("textTransform")};
+
+color: ${$('#font-styler-results').css("color")};<div style="display:none">}</div></code></pre>
 <div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
         );
         $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
@@ -201,4 +219,7 @@ color: ${$('#font-styler-results').css("color")};</code></pre>
         // Remove code
         $('#code-result-container').html('')
     });
+
+    // Start hljs
+    $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
 });

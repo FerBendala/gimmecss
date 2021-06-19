@@ -10,8 +10,8 @@ $(function () {
     var aSize = 30;                            // => Arrow size
     var aBorder = 4;                           // => Arrow border
     var aBorderR = 4;                          // => Arrow border repeat
-    var aColor = "#d2312e";                    // => Arrow color
-    var abColor = "#a92724";                   // => Arrow border color
+    var aColor = "#ec008c";                    // => Arrow color
+    var abColor = "#ab1766";                   // => Arrow border color
     var aPosition = 50;                        // => Arrow position
 
     /////////////////////////
@@ -20,8 +20,8 @@ $(function () {
         <style id="style">
             .arrowBox {
                 position: relative;
-                background: #d2312e;
-                border: 4px solid #a92724;
+                background: #ec008c;
+                border: 4px solid #ab1766;
             }
 
             .arrowBox:after,
@@ -38,14 +38,14 @@ $(function () {
 
             .arrowBox:after {
                 border-color: rgba(136, 183, 213, 0);
-                border-bottom-color: #d2312e;
+                border-bottom-color: #ec008c;
                 border-width: 30px;
                 margin-left: -30px;
             }
 
             .arrowBox:before {
                 border-color: rgba(194, 225, 245, 0);
-                border-bottom-color: #a92724;
+                border-bottom-color: #ab1766;
                 border-width: 36px;
                 margin-left: -36px;
             }
@@ -729,6 +729,44 @@ $(function () {
 
 
     /////////////////////////
+    // START CODE RESULTS
+    $('#code-result-container').html(`
+    <pre><code class="css">.arrowBox {
+    position: relative;
+    background: #ec008c;
+    border: 4px solid #ab1766;
+}
+
+.arrowBox:after,
+.arrowBox:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrowBox:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: #ec008c;
+    border-width: 30px;
+    margin-left: -30px;
+}
+
+.arrowBox:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-bottom-color: #ab1766;
+    border-width: 36px;
+    margin-left: -36px;
+}</pre></code>
+<div class="d-flex justify-content-end"><button class="tools-options__code__copy" id="code-result-copy" onclick="copyToClipboard('#code-result')">Copy to clipboard</button><span class="tools-options__code__badge">CSS</span></div>`
+);
+
+
+    /////////////////////////
     // CODE RESULTS
     // watch changes to add font-family values
     $('input, select').on('input change', function () {
@@ -819,4 +857,7 @@ ${space}margin-${position02}: -${aBorderR}px;
     });
 
     aBorderR = parseFloat(aBorder) + parseFloat(aSize) + parseFloat(2);
+
+    // Start hljs
+    $('pre code').each(function (i, e) { hljs.highlightBlock(e) });
 });

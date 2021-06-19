@@ -215,8 +215,40 @@
                 padding: em(48) em(32) em(32);
 
                 background-color: $color-black;
+                color: $color-gray--light;
 
                 white-space: break-spaces;
+
+                // Class
+                &-selector-class,
+                &-selector-pseudo {
+                    color: #ffc929;
+                }
+
+                // Pseudo class
+                &-number {
+                    color: #ff9800;
+                }
+
+                // Function
+                &-built_in {
+                    color: #ffe500;
+                }
+
+                // Attributes
+                &-attribute {
+                    color: #0ee4ff;
+                }
+
+                // String
+                &-string {
+                    color: $color-green;
+                }
+
+                // Keyword
+                &-keyword {
+                    color: #ff50e2;
+                }
             }
 
             // badge
