@@ -19,12 +19,19 @@
         padding: em(48) em(32) em(32);
         margin-bottom: em(40);
         border-radius: $border-radius * 2;
-        box-shadow: 0 em(-32) 0 em(8) $color-gray--light;
+        box-shadow: 0 em(-32) 0 em(8) $color-gray--light, $box-shadow;
         overflow: hidden;
 
         background-color: $color-black;
 
+        transition: background-color $transition;
         z-index: 1;
+
+        // If is light
+        &.light {
+            background-color: $color-white;
+        }
+
         // Reset button
         &__reset {
             @include position(absolute, $t: 0, $r: 0);
@@ -44,7 +51,7 @@
             letter-spacing: em(2);
 
             cursor: pointer;
-            transition: $transition;
+            transition: background-color $transition;
 
             // Icon
             &:before {
@@ -84,6 +91,55 @@
             letter-spacing: em(2);
 
             pointer-events: none;
+        }
+
+        // theme
+        &__theme {
+            @include position(absolute, $t: 0, $l: em(152));
+            @include flex($ai: center, $jc: center);
+
+            width: em(208);
+            height: em(40);
+            border-radius: 0 0 math.div($border-radius, 2) math.div($border-radius, 2);
+
+            background-color: $color-red;
+            color: $color-white;
+
+            font-size: em(11);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: em(2);
+
+            cursor: pointer;
+            transition: background-color $transition;
+
+            // Icon
+            &:before {
+                @include background-image($image: '#{$path-image}/svg/sun.svg', $bs: contain, $bp: left center);
+
+                display: block;
+                width: em(24);
+                max-width: em(24);
+                height: em(24);
+                max-height: em(24);
+                margin-right: em(8);
+
+                content: '';
+                transition: $transition;
+            }
+
+            // If is light
+            &.light {
+                // Icon
+                &:before {
+                    @include background-image($image: '#{$path-image}/svg/moon.svg', $bs: 88%, $bp: left center);
+                }
+            }
+
+            // Hover
+            &:hover {
+                background-color: darken($color-red, 24%);
+            }
         }
 
         // badge

@@ -1077,10 +1077,14 @@ body .content {
   padding: 3em 2em 2em;
   margin-bottom: 2.5em;
   border-radius: 16px;
-  box-shadow: 0 -2em 0 0.5em #f0f0f0;
+  box-shadow: 0 -2em 0 0.5em #f0f0f0, 0px 8px 16px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   background-color: #102525;
+  transition: background-color 0.4s ease-out;
   z-index: 1;
+}
+.tools-result.light {
+  background-color: #ffffff;
 }
 .tools-result__reset {
   position: absolute;
@@ -1112,7 +1116,7 @@ body .content {
   text-transform: uppercase;
   letter-spacing: 0.125em;
   cursor: pointer;
-  transition: 0.4s ease-out;
+  transition: background-color 0.4s ease-out;
 }
 .tools-result__reset:before {
   background-image: url("/static/images/svg/trash.svg");
@@ -1159,6 +1163,60 @@ body .content {
   text-transform: uppercase;
   letter-spacing: 0.125em;
   pointer-events: none;
+}
+.tools-result__theme {
+  position: absolute;
+  top: 0;
+  left: 9.5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  width: 13em;
+  height: 2.5em;
+  border-radius: 0 0 4px 4px;
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 0.6875em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  cursor: pointer;
+  transition: background-color 0.4s ease-out;
+}
+.tools-result__theme:before {
+  background-image: url("/static/images/svg/sun.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
+  display: block;
+  width: 1.5em;
+  max-width: 1.5em;
+  height: 1.5em;
+  max-height: 1.5em;
+  margin-right: 0.5em;
+  content: "";
+  transition: 0.4s ease-out;
+}
+.tools-result__theme.light:before {
+  background-image: url("/static/images/svg/moon.svg");
+  background-repeat: no-repeat;
+  background-size: 88%;
+  background-position: left center;
+}
+.tools-result__theme:hover {
+  background-color: #aa0f0f;
 }
 .tools-result__view {
   display: -webkit-box;

@@ -160,6 +160,7 @@
         <script src="{{ url_for('static', filename='js/functions.js') }}"></script>
         {% for script in [
             ('get-cookies'), 
+            ('change-theme'), 
             ('generic')
         ] %}
             <script src="{{ url_for('static', filename='js/components/') }}{{ script }}.js"></script>
