@@ -66,9 +66,15 @@
                         <option value="8">Hidden</option>
                     </select>
                     <!-- border-color -->
-                    <input type="color" id="border-color" aria-label="border-color" aria-describedby="border-color-description">
+                    <label for="border-color" class="input-color">
+                        <span class="input-color__text">Border color</span>
+                        <input type="color" id="border-color" name="border-color" aria-describedby="border-color-description" value="#ab1766">
+                    </label>
                     <!-- background-color -->
-                    <input type="color" id="background-color" aria-label="background-color" aria-describedby="background-color-description" value="#EC008C">
+                    <label for="background-color" class="input-color">
+                        <span class="input-color__text">Background color</span>
+                        <input type="color" id="background-color" name="background-color" aria-describedby="background-color-description" value="#EC008C">
+                    </label>
                 </div>
         
                 <!-- Code result -->

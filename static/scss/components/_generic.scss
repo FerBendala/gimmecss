@@ -79,38 +79,56 @@ body {
     }
 
     // Input type color
-    input[type='color'] {
-        width: 100%;
+    .input-color {
+        @include position(relative);
+
+        display: block;
         height: em(56);
-        padding: 0;
-        border: em(6) solid $color-white;
-        border-radius: $border-radius * 2;
-        box-shadow: $box-shadow;
-        overflow: hidden;
 
-        font-size: em(16);
+        // Text
+        &__text {
+            @include position(absolute, $t: 50%, $l: em(24));
 
-        appearance: none;
-        cursor: pointer;
-        transition: box-shadow $transition;
+            transform: translateY(-50%);
 
-        // Hover & focus
-        &:hover:not(:disabled),
-        &:focus:not(:disabled) {
-            box-shadow: $box-shadow, $box-shadow, $box-shadow;
+            font-weight: 600;
         }
 
-        // Real color picker
-        &::-webkit-color-swatch {
+        // Input type color
+        input[type='color'] {
             width: 100%;
             height: em(56);
-            margin-top: em(-16);
-            margin-left: em(-16);
-            margin-right: em(-16);
-            border: none;
-            border-radius: $border-radius;
+            padding: 0;
+            border: em(6) solid $color-white;
+            border-radius: $border-radius * 2;
+            box-shadow: $box-shadow;
+            overflow: hidden;
+    
+            font-size: em(16);
+    
+            appearance: none;
+            cursor: pointer;
+            transition: box-shadow $transition;
+    
+            // Hover & focus
+            &:hover:not(:disabled),
+            &:focus:not(:disabled) {
+                box-shadow: $box-shadow, $box-shadow, $box-shadow;
+            }
+    
+            // Real color picker
+            &::-webkit-color-swatch {
+                width: 100%;
+                height: em(56);
+                margin-top: em(-16);
+                margin-left: em(-16);
+                margin-right: em(-16);
+                border: none;
+                border-radius: $border-radius;
+            }
         }
     }
+    
 
     // Input range
     input[type='range'] {
@@ -172,7 +190,7 @@ body {
                 // Text
                 ~ .switch__text {
                     &:before {
-                        content: 'Inset';
+                        content: 'Inset shadow';
                     }
                 }
             }
@@ -213,7 +231,7 @@ body {
         &__text {
             margin-left: em(16);
             &:before {
-                content: 'Offset';
+                content: 'Offset shadow';
             }
         }
     }

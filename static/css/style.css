@@ -188,7 +188,19 @@ body input[type=number]:hover:not(:disabled),
 body input[type=number]:focus:not(:disabled) {
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08), 0px 8px 16px rgba(0, 0, 0, 0.08), 0px 8px 16px rgba(0, 0, 0, 0.08);
 }
-body input[type=color] {
+body .input-color {
+  position: relative;
+  display: block;
+  height: 3.5em;
+}
+body .input-color__text {
+  position: absolute;
+  top: 50%;
+  left: 1.5em;
+  transform: translateY(-50%);
+  font-weight: 600;
+}
+body .input-color input[type=color] {
   width: 100%;
   height: 3.5em;
   padding: 0;
@@ -201,10 +213,10 @@ body input[type=color] {
   cursor: pointer;
   transition: box-shadow 0.4s ease-out;
 }
-body input[type=color]:hover:not(:disabled), body input[type=color]:focus:not(:disabled) {
+body .input-color input[type=color]:hover:not(:disabled), body .input-color input[type=color]:focus:not(:disabled) {
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08), 0px 8px 16px rgba(0, 0, 0, 0.08), 0px 8px 16px rgba(0, 0, 0, 0.08);
 }
-body input[type=color]::-webkit-color-swatch {
+body .input-color input[type=color]::-webkit-color-swatch {
   width: 100%;
   height: 3.5em;
   margin-top: -1em;
@@ -265,7 +277,7 @@ body .switch__checkbox:checked + .switch__label:before {
   transform: translateX(1.5em);
 }
 body .switch__checkbox:checked ~ .switch__text:before {
-  content: "Inset";
+  content: "Inset shadow";
 }
 body .switch__label {
   position: relative;
@@ -294,7 +306,7 @@ body .switch__text {
   margin-left: 1em;
 }
 body .switch__text:before {
-  content: "Offset";
+  content: "Offset shadow";
 }
 body .radio__group {
   display: grid;
@@ -1182,11 +1194,17 @@ body .content {
   grid-column-start: 1;
   grid-column-end: 3;
 }
-.tools-options__settings--background-noise input[type=number], .tools-options__settings--box-shadow input[type=number] {
-  margin-bottom: 1em;
+.tools-options__settings--background-noise {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 1.5em;
 }
-.tools-options__settings--background-noise input[type=range], .tools-options__settings--box-shadow input[type=range] {
-  margin-bottom: 1.5em;
+.tools-options__settings--background-noise .input-color {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.tools-options__settings--background-noise input[type=number] {
+  margin-bottom: 0.5em;
 }
 .tools-options__settings--box-shadow {
   display: grid;
@@ -1194,12 +1212,15 @@ body .content {
   grid-gap: 1.5em;
 }
 .tools-options__settings--box-shadow .background-color,
-.tools-options__settings--box-shadow .switch {
+.tools-options__settings--box-shadow .switch,
+.tools-options__settings--box-shadow label[for=background-color] {
   grid-column-start: 1;
   grid-column-end: 3;
 }
+.tools-options__settings--box-shadow input[type=number],
+.tools-options__settings--box-shadow input[type=range],
 .tools-options__settings--box-shadow .switch {
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
 }
 .tools-options__settings--box-shadow .opacity {
   display: -webkit-box;
@@ -1207,11 +1228,11 @@ body .content {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  -webkit-align-items: flex-end;
-  -moz-align-items: flex-end;
-  align-items: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
   height: 3.5em;
 }
 .tools-options__settings--border-radius {
@@ -1224,15 +1245,24 @@ body .content {
   grid-column-start: 1;
   grid-column-end: 3;
 }
-.tools-options__settings--border-radius input[type=number] {
-  margin-bottom: 1em;
+.tools-options__settings--border-radius input[type=number],
+.tools-options__settings--border-radius input[type=range] {
+  margin-bottom: 0.5em;
 }
 .tools-options__settings--css-arrow {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-gap: 1.5em;
 }
+.tools-options__settings--css-arrow .radio__group {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.tools-options__settings--css-arrow input[type=range],
 .tools-options__settings--css-arrow input[type=number] {
+  margin-bottom: 0.5em;
+}
+.tools-options__settings--css-arrow .radio__group {
   margin-bottom: 1em;
 }
 .tools-options__settings--text-gradient {
@@ -1245,8 +1275,9 @@ body .content {
   grid-column-start: 1;
   grid-column-end: 3;
 }
-.tools-options__settings--text-gradient input[type=number] {
-  margin-bottom: 1em;
+.tools-options__settings--text-gradient input[type=number],
+.tools-options__settings--text-gradient input[type=range] {
+  margin-bottom: 0.5em;
 }
 .tools-options__settings--text-shadow {
   display: grid;
@@ -1255,7 +1286,8 @@ body .content {
 }
 .tools-options__settings--text-shadow input[type=text],
 .tools-options__settings--text-shadow .background-color,
-.tools-options__settings--text-shadow .blur {
+.tools-options__settings--text-shadow .blur,
+.tools-options__settings--text-shadow label[for=text-color] {
   grid-column-start: 1;
   grid-column-end: 3;
 }
@@ -1272,25 +1304,27 @@ body .content {
   align-items: center;
   height: 3.5em;
 }
-.tools-options__settings--text-shadow input[type=number] {
-  margin-bottom: 1em;
+.tools-options__settings--text-shadow input[type=number],
+.tools-options__settings--text-shadow input[type=range] {
+  margin-bottom: 0.5em;
 }
 .tools-options__settings--font-styler {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-gap: 1.5em;
 }
-.tools-options__settings--font-styler *:nth-last-child(-n+3),
+.tools-options__settings--font-styler #text-decoration,
 .tools-options__settings--font-styler input[type=text] {
   grid-column-start: 1;
   grid-column-end: 3;
 }
-.tools-options__settings--font-styler input[type=number] {
-  margin-bottom: 1em;
+.tools-options__settings--font-styler input[type=number],
+.tools-options__settings--font-styler input[type=range] {
+  margin-bottom: 0.5em;
 }
 .tools-options__settings--font-face {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-gap: 1.5em;
 }
 .tools-options__code {

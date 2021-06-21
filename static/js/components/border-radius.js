@@ -10,7 +10,7 @@ $(function () {
     var bBLeft = 0;           // => Border bottom left radius
     var bWidth = 0;           // => Border width
     var bStyle = "";          // => Border style
-    var bColor = "";          // => Border color
+    var bColor = "#ab1766";   // => Border color
     var bgColor = "";         // => Background color
 
 
@@ -224,6 +224,7 @@ $(function () {
 
     /////////////////////////
     // Border color
+    $('#border-radius-results').css('borderColor', bColor);
     $('#border-color').on('input propertychange', function () {
         bColor = $(this).val();
         $('#border-radius-results').css('borderColor', bColor);

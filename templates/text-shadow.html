@@ -35,8 +35,6 @@
                         <input type="number" aria-label="text-line-height" aria-describedby="text-line-height-description" min="0.7" max="2" step="0.1" placeholder="Line height">
                         <input type="range" class="custom-range w-100" id="text-line-height" min="0.7" max="2" step="0.1" value="1">
                     </div>
-                    <!-- text-color -->
-                    <input type="color" id="text-color" aria-label="background-color" aria-describedby="text-color-description" class="background-color" value="#EC008C">
                     <!-- text-shadow-horizontal -->
                     <div>
                         <input type="number" aria-label="text-shadow-horizontal" aria-describedby="text-shadow-horizontal-description" min="-10" max="10" placeholder="Text shadow horizontal">
@@ -53,12 +51,20 @@
                         <input type="range" class="custom-range w-100" id="text-shadow-blur" min="0" max="10" value="0">
                     </div>
                     <!-- text-shadow-color -->
-                    <input type="color" id="text-shadow-color" aria-label="text-shadow-color" aria-describedby="text-shadow-color-description">
+                    <label for="text-shadow-color" class="input-color">
+                        <span class="input-color__text">Text shadow color</span>
+                        <input type="color" id="text-shadow-color" name="text-shadow-color" aria-describedby="text-shadow-color-description">
+                    </label>
                     <!-- text-shadow-opacity -->
                     <div class="opacity">
                         <input type="hidden" aria-label="text-shadow-opacity" aria-describedby="text-shadow-opacity-description" min="0" max="1" step="0.01" placeholder="Opacity">
                         <input type="range" class="custom-range w-100" id="text-shadow-opacity" min="0" max="1" value="0" step="0.01">
                     </div>
+                    <!-- text-color -->
+                    <label for="text-color" class="input-color">
+                        <span class="input-color__text">Text color</span>
+                        <input type="color" id="text-color" name="text-color" aria-describedby="text-color-description" class="background-color" value="#EC008C">
+                    </label>
                 </div>
         
                 <!-- Code result -->

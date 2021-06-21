@@ -73,10 +73,17 @@
                         <input type="number" aria-label="arrow-position" aria-describedby="arrow-position-description" min="0" max="100" placeholder="Arrow position">
                         <input type="range" class="custom-range w-100" id="arrow-position" min="0" max="100" value="50">
                     </div>
-                    <!-- arrow-color -->
-                    <input type="color" id="arrow-color" aria-label="background-color" aria-describedby="arrow-color-description" value="#ec008c">
+                    <br>
                     <!-- arrow-border-color -->
-                    <input type="color" id="arrow-border-color" aria-label="background-color" aria-describedby="arrow-border-color-description" value="#ab1766">
+                    <label for="border-color" class="input-color">
+                        <span class="input-color__text">Border color</span>
+                        <input type="color" id="arrow-border-color" name="border-color" aria-describedby="arrow-border-color-description" value="#ab1766">
+                    </label>
+                    <!-- arrow-color -->
+                    <label for="background-color" class="input-color">
+                        <span class="input-color__text">Background color</span>
+                        <input type="color" id="arrow-color" name="background-color" aria-describedby="arrow-color-description" value="#ec008c">
+                    </label>
                 </div>
         
                 <!-- Code result -->

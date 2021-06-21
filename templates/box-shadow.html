@@ -23,6 +23,17 @@
             <section class="tools-options">
                 <!-- Settings -->
                 <div class="tools-options__settings tools-options__settings--{{ active_page }}">
+                    <!-- box-shadow-position -->
+                    <div class="switch">
+                        <!-- Checkbox -->
+                        <input type="checkbox" class="switch__checkbox" id="box-shadow-position">
+                        
+                        <!-- Button -->
+                        <label for="box-shadow-position" class="switch__label"></label>
+                        
+                        <!-- Text -->
+                        <span class="switch__text"></span>
+                    </div>
                     <!-- box-shadow-horizontal -->
                     <div>
                         <input type="number" aria-label="box-shadow-horizontal" aria-describedby="box-shadow-horizontal-description" min="-200" max="200" placeholder="Box shadow horizontal">
@@ -43,26 +54,21 @@
                         <input type="number" aria-label="box-shadow-spread" aria-describedby="box-shadow-spread-description" min="-200" max="200" placeholder="Spread">
                         <input type="range" class="custom-range w-100" id="box-shadow-spread" min="-200" max="200" value="0">
                     </div>
-                    <!-- box-shadow-position -->
-                    <div class="switch">
-                        <!-- Checkbox -->
-                        <input type="checkbox" class="switch__checkbox" id="box-shadow-position">
-                        
-                        <!-- Button -->
-                        <label for="box-shadow-position" class="switch__label"></label>
-                        
-                        <!-- Text -->
-                        <span class="switch__text"></span>
-                    </div>
                     <!-- box-shadow-color -->
-                    <input type="color" id="box-shadow-color" aria-label="box-shadow-color" aria-describedby="box-shadow-color-description">
+                    <label for="box-shadow-color" class="input-color">
+                        <span class="input-color__text">Box shadow color</span>
+                        <input type="color" id="box-shadow-color" name="box-shadow-color" aria-describedby="box-shadow-color-description">
+                    </label>
                     <!-- box-shadow-opacity -->
                     <div class="opacity">
                         <input type="hidden" aria-label="box-shadow-opacity" aria-describedby="box-shadow-opacity-description" min="0" max="1" step="0.01" placeholder="Opacity">
                         <input type="range" class="custom-range w-100" id="box-shadow-opacity" min="0" max="1" value="1" step="0.01">
                     </div>
                     <!-- background-color -->
-                    <input type="color" id="background-color" aria-label="background-color" aria-describedby="background-color-description" class="background-color" value="#EC008C">
+                    <label for="background-color" class="input-color">
+                        <span class="input-color__text">Background color</span>
+                        <input type="color" id="background-color" name="background-color" aria-describedby="background-color-description" class="background-color" value="#ec008c">
+                    </label>
                 </div>
         
                 <!-- Code result -->

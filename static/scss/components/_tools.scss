@@ -112,28 +112,30 @@
                     @include grid-child($gcs: 1, $gce: 3);
                 }
             }
-            // Background noise
-            &--background-noise,
-            &--box-shadow {
-                input[type='number'] {
-                    margin-bottom: em(16);
+            &--background-noise {
+                @include grid($gc: repeat(2, minmax(0, 1fr)), $gg: em(24));
+                .input-color {
+                    @include grid-child($gcs: 1, $gce: 3);
                 }
-                input[type='range'] {
-                    margin-bottom: em(24);
+                input[type='number'] {
+                    margin-bottom: em(8);
                 }
             }
             // Box shadow
             &--box-shadow {
                 @include grid($gc: repeat(2, minmax(0, 1fr)), $gg: em(24));
                 .background-color,
-                .switch {
+                .switch,
+                label[for='background-color'] {
                     @include grid-child($gcs: 1, $gce: 3);
                 }
+                input[type='number'],
+                input[type='range'],
                 .switch {
-                    margin-bottom: em(24);
+                    margin-bottom: em(8);
                 }
                 .opacity {
-                    @include flex($ai: flex-end);
+                    @include flex($ai: center);
 
                     height: em(56);
                 }
@@ -145,14 +147,22 @@
                 select {
                     @include grid-child($gcs: 1, $gce: 3);
                 }
-                input[type='number'] {
-                    margin-bottom: em(16);
+                input[type='number'],
+                input[type='range'] {
+                    margin-bottom: em(8);
                 }
             }
             // CSS arrow
             &--css-arrow {
-                @include grid($gc: minmax(0, 1fr), $gg: em(24));
+                @include grid($gc: repeat(2, minmax(0, 1fr)), $gg: em(24));
+                .radio__group {
+                    @include grid-child($gcs: 1, $gce: 3);
+                }
+                input[type='range'],
                 input[type='number'] {
+                    margin-bottom: em(8);
+                }
+                .radio__group {
                     margin-bottom: em(16);
                 }
             }
@@ -163,8 +173,9 @@
                 div {
                     @include grid-child($gcs: 1, $gce: 3);
                 }
-                input[type='number'] {
-                    margin-bottom: em(16);
+                input[type='number'],
+                input[type='range'] {
+                    margin-bottom: em(8);
                 }
             }
             // Text gradient
@@ -172,7 +183,8 @@
                 @include grid($gc: repeat(2, minmax(0, 1fr)), $gg: em(24));
                 input[type='text'],
                 .background-color,
-                .blur {
+                .blur,
+                label[for='text-color'] {
                     @include grid-child($gcs: 1, $gce: 3);
                 }
                 .opacity {
@@ -180,24 +192,26 @@
 
                     height: em(56);
                 }
-                input[type='number'] {
-                    margin-bottom: em(16);
+                input[type='number'],
+                input[type='range'] {
+                    margin-bottom: em(8);
                 }
             }
             // Font styler
             &--font-styler {
                 @include grid($gc: repeat(2, minmax(0, 1fr)), $gg: em(24));
-                *:nth-last-child(-n+3),
+                #text-decoration,
                 input[type='text'] {
                     @include grid-child($gcs: 1, $gce: 3);
                 }
-                input[type='number'] {
-                    margin-bottom: em(16);
+                input[type='number'],
+                input[type='range'] {
+                    margin-bottom: em(8);
                 }
             }
             // Font face
             &--font-face {
-                @include grid($gc: minmax(0, 1fr), $gg: em(24));
+                @include grid($gc: repeat(3, minmax(0, 1fr)), $gg: em(24));
             }
         }
 
