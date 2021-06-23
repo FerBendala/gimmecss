@@ -200,7 +200,7 @@
             &--border-radius {
                 @include grid($gc: repeat(2, minmax(0, 1fr)), $gg: em(24));
                 input[type='color'],
-                select {
+                .select {
                     @include grid-child($gcs: 1, $gce: 3);
                 }
                 input[type='number'],
@@ -226,7 +226,7 @@
             &--text-gradient {
                 @include grid($gc: repeat(2, minmax(0, 1fr)), $gg: em(24));
                 > input,
-                div {
+                div:not(.select) {
                     @include grid-child($gcs: 1, $gce: 3);
                 }
                 input[type='number'],
@@ -256,7 +256,7 @@
             // Font styler
             &--font-styler {
                 @include grid($gc: repeat(2, minmax(0, 1fr)), $gg: em(24));
-                #text-decoration,
+                .select,
                 input[type='text'] {
                     @include grid-child($gcs: 1, $gce: 3);
                 }

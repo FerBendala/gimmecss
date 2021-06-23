@@ -54,6 +54,25 @@ body {
         }
     }
 
+    // Input group
+    .input-group {
+        @include position(relative);
+
+        label {
+            @include position(absolute, $t: em(7), $l: em(16));
+            
+            pointer-events: none;
+            transition: $transition;
+
+            // Active
+            &.active {
+                @include position(absolute, $t: em(-24), $l: em(16));
+
+                font-size: 80%;
+            }
+        }
+    }
+
     // Input text
     input[type='text'],
     input[type='number'] {
@@ -103,19 +122,19 @@ body {
             border-radius: $border-radius * 2;
             box-shadow: $box-shadow;
             overflow: hidden;
-    
+
             font-size: em(16);
-    
+
             appearance: none;
             cursor: pointer;
             transition: box-shadow $transition;
-    
+
             // Hover & focus
             &:hover:not(:disabled),
             &:focus:not(:disabled) {
                 box-shadow: $box-shadow, $box-shadow, $box-shadow;
             }
-    
+
             // Real color picker
             &::-webkit-color-swatch {
                 width: 100%;
@@ -128,7 +147,6 @@ body {
             }
         }
     }
-    
 
     // Input range
     input[type='range'] {

@@ -27,28 +27,33 @@
                     <!-- Edit text -->
                     <input type="text" aria-label="text-edit" aria-describedby="text-edit-description" min="-10" max="10" placeholder="Write something...">
                     <!-- text-size -->
-                    <div>
-                        <input type="number" aria-label="text-size" aria-describedby="text-size-description" min="0" max="100" placeholder="Font size">
+                    <div class="input-group">
+                        <label for="text-size">Font size</label>
+                        <input type="number" aria-label="text-size" aria-describedby="text-size-description" min="0" max="100">
                         <input type="range" class="custom-range w-100" id="text-size" min="0" max="100" value="78">
                     </div>
                     <!-- text-size -->
-                    <div>
-                        <input type="number" aria-label="text-line-height" aria-describedby="text-line-height-description" min="0.7" max="2" step="0.1" placeholder="Line height">
+                    <div class="input-group">
+                        <label for="text-line-height">Line height</label>
+                        <input type="number" aria-label="text-line-height" aria-describedby="text-line-height-description" min="0.7" max="2" step="0.1">
                         <input type="range" class="custom-range w-100" id="text-line-height" min="0.7" max="2" step="0.1" value="1">
                     </div>
                     <!-- text-shadow-horizontal -->
-                    <div>
-                        <input type="number" aria-label="text-shadow-horizontal" aria-describedby="text-shadow-horizontal-description" min="-10" max="10" placeholder="Text shadow horizontal">
+                    <div class="input-group">
+                        <label for="text-shadow-horizontal">Text shadow horizontal</label>
+                        <input type="number" aria-label="text-shadow-horizontal" aria-describedby="text-shadow-horizontal-description" min="-10" max="10">
                         <input type="range" class="custom-range w-100" id="text-shadow-horizontal" min="-10" max="10" value="0">
                     </div>
                     <!-- text-shadow-vertical -->
-                    <div>
-                        <input type="number" aria-label="text-shadow-vertical" aria-describedby="text-shadow-vertical-description" min="-10" max="10" placeholder="Text shadow vertical">
+                    <div class="input-group">
+                        <label for="text-shadow-vertical">Text shadow vertical</label>
+                        <input type="number" aria-label="text-shadow-vertical" aria-describedby="text-shadow-vertical-description" min="-10" max="10">
                         <input type="range" class="custom-range w-100" id="text-shadow-vertical" min="-10" max="10" value="0">
                     </div>
                     <!-- text-shadow-blur -->
-                    <div class="blur">
-                        <input type="number" aria-label="text-shadow-blur" aria-describedby="text-shadow-blur-description" min="0" max="10" placeholder="Blur">
+                    <div class="input-group blur">
+                        <label for="text-shadow-blur">Blur</label>
+                        <input type="number" aria-label="text-shadow-blur" aria-describedby="text-shadow-blur-description" min="0" max="10">
                         <input type="range" class="custom-range w-100" id="text-shadow-blur" min="0" max="10" value="0">
                     </div>
                     <!-- text-shadow-color -->

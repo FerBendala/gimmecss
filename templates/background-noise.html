@@ -25,13 +25,15 @@
                 <!-- Settings -->
                 <div class="tools-options__settings tools-options__settings--{{ active_page }}">
                     <!-- noise-opacity -->
-                    <div>
-                        <input type="number" aria-label="noise-opacity" aria-describedby="noise-opacity-description" min="0" max="1" step="0.05" placeholder="Noise opacity">
+                    <div class="input-group">
+                        <label for="noise-opacity">Noise opacity</label>
+                        <input type="number" aria-label="noise-opacity" aria-describedby="noise-opacity-description" min="0" max="1" step="0.05" class="input-group__item">
                         <input type="range" class="custom-range w-100" id="noise-opacity" min="0" max="1" value="0" step="0.05">
                     </div>
                     <!-- noise-density -->
-                    <div>
-                        <input type="number" aria-label="noise-density" aria-describedby="noise-density-description" min="1" max="100" placeholder="Noise density">
+                    <div class="input-group">
+                        <label for="noise-density">Noise density</label>
+                        <input type="number" aria-label="noise-density" aria-describedby="noise-density-description" min="1" max="100">
                         <input type="range" class="custom-range w-100" id="noise-density" min="1" max="100" value="100">
                     </div>
                     <!-- background-color -->

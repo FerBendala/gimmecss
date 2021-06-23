@@ -25,47 +25,56 @@
                 <!-- Settings -->
                 <div class="tools-options__settings tools-options__settings--{{ active_page }}">
                     <!-- border-left-all -->
-                    <div>
-                        <input type="number" aria-label="border-all" aria-describedby="border-all-description" min="0" max="200" placeholder="All border">
+                    <div class="input-group">
+                        <label for="border-all">All borders</label>
+                        <input type="number" aria-label="border-all" aria-describedby="border-all-description" min="0" max="200">
                         <input type="range" class="custom-range w-100" id="border-all" min="0" max="200" value="0">
                     </div>
                     <!-- border-left-top -->
-                    <div>
-                        <input type="number" aria-label="border-top-left" aria-describedby="border-top-left-description" min="0" max="200" placeholder="Border top left">
+                    <div class="input-group">
+                        <label for="border-top-left">Border top left</label>
+                        <input type="number" aria-label="border-top-left" aria-describedby="border-top-left-description" min="0" max="200">
                         <input type="range" class="custom-range w-100" id="border-top-left" min="0" max="200" value="0">
                     </div>
                     <!-- border-right-top -->
-                    <div>
-                        <input type="number" aria-label="border-top-right" aria-describedby="border-top-right-description" min="0" max="200" placeholder="Border top right">
+                    <div class="input-group">
+                        <label for="border-top-right">Border top right</label>
+                        <input type="number" aria-label="border-top-right" aria-describedby="border-top-right-description" min="0" max="200">
                         <input type="range" class="custom-range w-100" id="border-top-right" min="0" max="200" value="0">
                     </div>
-                    <!-- border-right-bottom -->
-                    <div>
-                        <input type="number" aria-label="border-bottom-right" aria-describedby="border-bottom-right-description" min="0" max="200" placeholder="Border bottom left">
-                        <input type="range" class="custom-range w-100" id="border-bottom-right" min="0" max="200" value="0">
-                    </div>
                     <!-- border-left-bottom -->
-                    <div>
-                        <input type="number" aria-label="border-bottom-left" aria-describedby="border-bottom-left-description" min="0" max="200" placeholder="Border bottom right">
+                    <div class="input-group">
+                        <label for="border-bottom-left">Border bottom left</label>
+                        <input type="number" aria-label="border-bottom-left" aria-describedby="border-bottom-left-description" min="0" max="200">
                         <input type="range" class="custom-range w-100" id="border-bottom-left" min="0" max="200" value="0">
                     </div>
+                    <!-- border-right-bottom -->
+                    <div class="input-group">
+                        <label for="border-bottom-right">Border bottom right</label>
+                        <input type="number" aria-label="border-bottom-right" aria-describedby="border-bottom-right-description" min="0" max="200">
+                        <input type="range" class="custom-range w-100" id="border-bottom-right" min="0" max="200" value="0">
+                    </div>
                     <!-- border-width -->
-                    <div>
-                        <input type="number" aria-label="border-width" aria-describedby="border-width-description" min="0" max="200" placeholder="Border width">
+                    <div class="input-group">
+                        <label for="border-width">Border width</label>
+                        <input type="number" aria-label="border-width" aria-describedby="border-width-description" min="0" max="200">
                         <input type="range" class="custom-range w-100" id="border-width" min="0" max="200" value="0">
                     </div>
                     <!-- border-style -->
-                    <select id="border-style">
-                        <option value="">Border style</option>
-                        <option value="1">Solid</option>
-                        <option value="2">Dotted</option>
-                        <option value="3">Dashed</option>
-                        <option value="4">Double</option>
-                        <option value="5">Groove</option>
-                        <option value="6">Inset</option>
-                        <option value="7">Outset</option>
-                        <option value="8">Hidden</option>
-                    </select>
+                    <div class="input-group select">
+                        <label for="border-style">Border style</label>
+                        <select id="border-style">
+                            <option hidden selected></option>
+                            <option value="1">Solid</option>
+                            <option value="2">Dotted</option>
+                            <option value="3">Dashed</option>
+                            <option value="4">Double</option>
+                            <option value="5">Groove</option>
+                            <option value="6">Inset</option>
+                            <option value="7">Outset</option>
+                            <option value="8">Hidden</option>
+                        </select>
+                    </div>
                     <!-- border-color -->
                     <label for="border-color" class="input-color">
                         <span class="input-color__text">Border color</span>

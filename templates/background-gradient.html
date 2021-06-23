@@ -25,26 +25,32 @@
                 <!-- Settings -->
                 <div class="tools-options__settings tools-options__settings--{{ active_page }}">
                     <!-- gradient-type -->
-                    <select id="switch-type">
-                        <option value="">Gradient type</option>
-                        <option value="radial">Radial</option>
-                        <option value="linear">Linear</option>
-                        <option value="repeating-radial">Repeating Radial</option>
-                        <option value="repeating-linear">Repeating Linear</option>
-                    </select>
+                    <div class="input-group">
+                        <select id="switch-type">
+                            <option hidden selected></option>
+                            <option value="radial">Radial</option>
+                            <option value="linear">Linear</option>
+                            <option value="repeating-radial">Repeating Radial</option>
+                            <option value="repeating-linear">Repeating Linear</option>
+                        </select>
+                        <label for="switch-type">Gradient type</label>
+                    </div>
                     <!-- gradient-direction -->
-                    <select id="switch-angle">
-                        <option value="">Gradient direction</option>
-                        <option value="top">Top</option>
-                        <option value="bottom">Bottom</option>
-                        <option value="center">Center</option>
-                        <option value="right">Right</option>
-                        <option value="left">Left</option>
-                        <option value="45deg">⬋ Southwest</option>
-                        <option value="-135deg">⬈ Northeast</option>
-                        <option value="-45deg">⬉ Northwest</option>
-                        <option value="135deg">⬊ Southeast</option>
-                    </select>
+                    <div class="input-group">
+                        <select id="switch-angle">
+                            <option hidden selected></option>
+                            <option value="top">Top</option>
+                            <option value="bottom">Bottom</option>
+                            <option value="center">Center</option>
+                            <option value="right">Right</option>
+                            <option value="left">Left</option>
+                            <option value="45deg">Southwest ⬋</option>
+                            <option value="-45deg">Northwest ⬉</option>
+                            <option value="135deg">Southeast ⬊</option>
+                            <option value="-135deg">Northeast ⬈</option>
+                        </select>
+                        <label for="switch-angle">Gradient direction</label>
+                    </div>
                     <!-- gradient-picker -->
                     <div id="grapick"></div>
                 </div>

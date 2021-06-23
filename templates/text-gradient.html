@@ -27,31 +27,38 @@
                     <!-- Edit text -->
                     <input type="text" aria-label="text-edit" aria-describedby="text-edit-description" min="-10" max="10" placeholder="Write something...">
                     <!-- text-size -->
-                    <div>
-                        <input type="number" aria-label="text-size" aria-describedby="text-size-description" min="0" max="100" placeholder="Font size">
+                    <div class="input-group">
+                        <label for="text-size">Font size</label>
+                        <input type="number" aria-label="text-size" aria-describedby="text-size-description" min="0" max="100">
                         <input type="range" class="custom-range w-100" id="text-size" min="0" max="100" value="78">
                     </div>
                     <!-- gradient-type -->
-                    <select id="switch-type">
-                        <option value="">Type</option>
-                        <option value="radial">Radial</option>
-                        <option value="linear">Linear</option>
-                        <option value="repeating-radial">Repeating Radial</option>
-                        <option value="repeating-linear">Repeating Linear</option>
-                    </select>
+                    <div class="input-group select">
+                        <label for="switch-type">Type</label>
+                        <select id="switch-type">
+                            <option hidden selected></option>
+                            <option value="radial">Radial</option>
+                            <option value="linear">Linear</option>
+                            <option value="repeating-radial">Repeating Radial</option>
+                            <option value="repeating-linear">Repeating Linear</option>
+                        </select>
+                    </div>
                     <!-- gradient-direction -->
-                    <select id="switch-angle">
-                        <option value="">Direction</option>
-                        <option value="top">Top</option>
-                        <option value="bottom">Bottom</option>
-                        <option value="center">Center</option>
-                        <option value="right">Right</option>
-                        <option value="left">Left</option>
-                        <option value="45deg">⬋ Southwest</option>
-                        <option value="-135deg">⬈ Northeast</option>
-                        <option value="-45deg">⬉ Northwest</option>
-                        <option value="135deg">⬊ Southeast</option>
-                    </select>
+                    <div class="input-group select">
+                        <label for="switch-angle">Direction</label>
+                        <select id="switch-angle">
+                            <option hidden selected></option>
+                            <option value="top">Top</option>
+                            <option value="bottom">Bottom</option>
+                            <option value="center">Center</option>
+                            <option value="right">Right</option>
+                            <option value="left">Left</option>
+                            <option value="45deg">⬋ Southwest</option>
+                            <option value="-135deg">⬈ Northeast</option>
+                            <option value="-45deg">⬉ Northwest</option>
+                            <option value="135deg">⬊ Southeast</option>
+                        </select>
+                    </div>
                     <!-- gradient-picker -->
                     <div id="grapick"></div>
                 </div>
